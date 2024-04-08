@@ -10,6 +10,14 @@ library(cowplot)
 library(png)
 library(patchwork)
 library(RColorBrewer)
+library(dplyr)
+library(readr)
+library(ggplot2)
+library(ggpubr)
+library(rstudioapi)
+library(magick)
+library(janitor)
+library(tinytable)
 
 # define some colour-blind-friendly colour palettes --------------
 #From Color Universal Design (CUD): https://jfly.uni-koeln.de/color/
@@ -21,14 +29,9 @@ oranges <- brewer.pal(9, 'YlOrRd')
 
 #add your favourite colour palettes
 
-# show as coloured pie charts --------------
-
-dev.new()
-pie(rep(1,8), col=Okabe_Ito, Okabe_Ito, main='Okabe Ito')
-
 # save session info and Rstudio version info for reproducibility ----------------
-writeLines(capture.output(sessionInfo()), "code/sessionInfo.txt")
-writeLines(capture.output(rstudioapi::versionInfo()), "code/versionInfo.txt")
+
+writeLines(capture.output(sessionInfo()), "sessionInfo.txt")
 
 # functions of general use ---------------
 

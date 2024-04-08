@@ -1,0 +1,839 @@
+---
+title: "Rstudio in Data Science and Paper Writing - Day 1"
+author: "Gáspár Jékely"
+format:
+  revealjs: 
+    theme: [default, custom.scss]
+    slide-number: false
+    code-fold: false
+    code-summary: "Code"
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+scrollable: true
+---
+
+## Course program
+
+::: columns
+:::{.column width=50%}
+### Day 1
+<br>
+- **Part 1**: Why open science? Project management, data import, tidy data
+
+- 12:30-13:30 lunch break
+
+- **Part 2**: Plotting, figure assembly
+:::
+:::{.column width=50%}
+### Day 2
+<br>
+- **Part 3**: Figure assembly cont., tables, manuscript writing, data and figure embedding
+
+- 12:30-13:30 lunch break
+
+- **Part 4**: GitHub, collaboration, sharing, version control
+:::
+:::
+```{r eval=TRUE, echo=FALSE}
+source("../analysis/scripts/packages_and_functions.R")
+```
+
+## Resources
+
+- The [Tidyverse Cookbook](https://rstudio-education.github.io/tidyverse-cookbook/) (edited by Garrett Grolemund)
+https://rstudio-education.github.io/tidyverse-cookbook/
+
+## Why do we need open science
+
+- Reproducibility crisis
+- Only a small fraction of research data is available
+- An even smaller fraction of code is available (physicists are notoriously bad in sharing)
+- Open access, if exists, is very expensive and maintains the profit of legacy publishers
+- Scholarly literature is antiquated, dysfunctional and rewards prestige/hype over quality and integrity
+- Scholarly workflows use non-professional, error-prone, closed-source software (MS, Adobe, Prism etc.) that makes sharing, integration, automation and collaboration difficult
+- The final product of years of research is often only a single pdf file (1990s tech) behind a paywall
+- Data, code and text are not searchable, reuseable, discoverable, shareable
+
+## Most source data collected by scientists are not available
+
+![](images/Data_publication_Pyramide.png)
+
+## Most scientists use software developed for accounting
+
+![](images/Scientists_rename_genes.png)
+[theverge.com](https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates)
+
+- the symbol MARCH1 has now become MARCHF1, while SEPT1 has become SEPTIN1, and so on
+
+<br>
+
+## Gene name errors are widespread in the scientific literature
+
+![](images/13059_2016_1044_Fig1_HTML.webp)
+
+
+::: aside
+[Ziemann et al. (2016)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7)
+:::
+
+## Code is very often not shared or not shared stably
+
+- *We assess the effectiveness of such a policy by (i) requesting data and code from authors and (ii) attempting replication of the published findings. We chose a random sample of 204 scientific papers published in the journal Science ... We found that we were able to obtain artifacts from 44% of our sample and were able to reproduce the findings for 26%.*
+
+::: {.incremental}
+- "When you approach a PI for the source codes and raw data, you better explain who you are, whom you work for, why you need the data and what you are going to do with it."
+
+- "I have to say that this is a very unusual request without any explanation! Please ask your supervisor to send me an email with a detailed, and I mean detailed, explanation."
+
+- "The data files remains our property and are not deposited for free access. Please, let me know the purpose you want to get the file and we will see how we can help you."
+
+- "We do not typically share our internal data or code with people outside our collaboration."
+
+- sigh...
+:::
+
+![](images/Stodden_PNAS.png){.absolute top="480" left="300" height="200"}
+
+::: aside
+[Stodden et al. (2018) ](https://doi.org/10.1073/pnas.1708290115)
+:::
+
+## Current state of scholarly digital infrastructure and knowhow
+
+<img src=https://media1.tenor.com/images/f6362876996697b6a6f554b2ac3d3013/tenor.gif?itemid=10488408 width=200>
+
+
+## What this course is about: what you can do to be open
+
+- tools and approaches for transparent and open publishing
+- a paper is not only text and figures, but also data and code
+- all should be shared for reproducibility and openness
+- otherwise it is not really 'published'
+- we will use Rstudio to learn a comprehensive paper-writing pipeline
+- code, tabulated data, figures, text, references, supplements all in one place
+- collaborative working and sharing via GitHub (or other public repository)
+- the figures are linked to their underlying data and code to generate them
+- efficient version control
+- faster, more transparent and reproducible workflow
+- no software license is needed (no MS, no Adobe, no Matlab)
+- once you master the approach I advocate, you don't want to go back...
+
+## Part 1 - Packages, project management, data import, tidy data
+
+<br>
+
+- some rules on files, folders
+- R projects
+- installing and loading packages
+- project templates
+- importing various types of datasets
+- principles of tidy data, tidying of messy datasets
+
+
+## Rule nr. 1 -- relative working directories
+
+<br>
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+getwd()
+```
+
+
+-   Never use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you.
+
+- Do not use setwd() to set your working dir
+
+-   Keep all files associated with a project together — input data, R scripts, analytical results, figures. This is such a wise and common practice that RStudio has built-in support for this via **Rprojects**.
+
+-   If you create a new Rproject, your working dir will in general be where you save the new project
+
+-   Whenever you refer to a file with a relative path it will look for it in your wd.
+
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+list.files()
+```
+
+
+## Project management
+
+* Use folders relative to your main .Rproject file (e.g. My_next_paper.Rproject)
+
+* Use a consistent directory structure to store code, data, text, figures, supplements, etc.
+
+* Can be ensured if you always use the same project template
+
+* We will use https://github.com/JekelyLab/RStudio_paper_writing_course
+
+* Go to github and clone the project to your account ("Use this template")
+
+* Go to RStudio -> new project -> version control -> git -> git URL of your new project
+
+* select local dir and download the project with all directories to your computer
+
+* let's check the project
+
+* you can rename the .Rproject file to 'my favourite file name'
+
+## Installing packages
+
+* install the **tidyverse** package
+```{r, eval=FALSE, echo=TRUE}
+#| code-fold: false
+install.packages("tidyverse")
+```
+
+
+- then load the package
+```{r, eval=FALSE, echo=TRUE}
+#| code-fold: false
+library(tidyverse)
+library(png)
+```
+
+## You can source packages and functions from one file
+
+* open the R script analysis/scripts/Course_exercises.R with the example code
+
+* source several packages and functions, listed in one file consistently across scripts
+
+```{r eval=FALSE, tidy=FALSE, fig.height=5}
+#| code-fold: false
+source("../analysis/scripts/packages_and_functions.R")
+```
+
+## General good practice -- avoid spaces in file names 
+
+:::{.incremental}
+
+<br>
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+list.files("../analysis/data")
+```
+
+<br>
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+readxl::read_excel("../analysis/data/data - José - March 2024.xlsx")
+```
+:::
+
+## Save and share your computer environment and packages
+
+```{r echo=TRUE, eval=TRUE}
+#save session info and Rstudio version info for reproducibility
+sessionInfo()
+writeLines(capture.output(sessionInfo()), "sessionInfo.txt")
+```
+
+
+## Read and preview data 1
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Jose <- readxl::read_excel("../analysis/data/data - José - March 2024.xlsx")
+head(data_Jose)
+glimpse(data_Jose)
+str(data_Jose)
+summary(data_Jose)
+```
+
+
+## Your workspace in R
+
+- Recreate, rather than save workspace, save your coda and data, not workspace <br>
+
+<img src=images/rstudio-workspace.png width=60%>
+
+## Read and preview data 2
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Ashwini <- readxl::read_excel("../analysis/data/24_01_22qpcr_1 - ash pal.xlsx")
+head(data_Ashwini)
+glimpse(data_Ashwini)
+str(data_Ashwini)
+summary(data_Ashwini)
+```
+
+## Tidy data - definitions
+
+from https://r4ds.hadley.nz/data-visualize
+
+- A **variable** is a quantity, quality, or property that you can measure
+- A **value** is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.
+- An **observation** is a set of measurements made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. We’ll sometimes refer to an observation as a data point.
+
+## Tidy data - definitions
+
+* Tabular data is a set of values, each associated with a variable and an observation. 
+
+* Tabular data is tidy if each value is placed in its own “cell”, each variable in its own column, and each observation in its own row.
+
+* “Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham
+
+__There are three interrelated rules which make a dataset tidy:__
+
+* Each variable must have its own column.
+* Each observation must have its own row.
+* Each value must have its own cell.
+
+<img src=images/tidy-1.png width=60%>
+
+## Tidy data - an example tidy dataset
+
+```{r, echo=TRUE}
+knitr::kable(head(iris), format = 'html')
+```
+
+
+## Tibbles = tabular data in tidy format
+
+```{r}
+#| eval=FALSE, echo=TRUE
+vignette("tibble")
+
+```
+
+- Tibbles are a modern take on data frames. 
+- They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating.
+- Tibbles encapsulate best practices for data frames.
+- tibble() It never uses row.names().
+
+## Tidy data -- __Why should I care?__
+
+<br>
+- after reading your data, you should always try to convert them into a tibble
+- downstream analyses (plotting, mutating, sharing etc.) will be a lot easier
+- data coming from other software, collaborators etc. are often 'messy'
+- it is worth investing the time in tidying the data first
+- sometimes it is tricky, as we will see...
+
+## Let's try to fix a messy dataset...
+
+```{r}
+#| eval=TRUE, echo=TRUE
+Gene <- c(rep("Nanog", 15), rep("oct4", 15), rep("sox2", 15),
+  rep("Nestin", 15), rep("pax6", 15), rep("Foxg1", 15),
+  rep("GAPDH", 15))
+Gene
+
+data_Ashwini$Gene <- Gene
+head(data_Ashwini)
+```
+
+
+## Select only relevant columns and clean up names...
+
+```{r}
+
+#| eval=TRUE, echo=TRUE
+data_Ashwini_sel <- data_Ashwini %>%
+  select(1:6) %>%
+  janitor::clean_names()
+data_Ashwini_sel
+```
+
+## Add mean and SD columns with group_by() and mutate()
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Ashwini_sel_M_SD <- data_Ashwini_sel %>%
+  group_by(gene) %>%
+  mutate(mean2dct = mean(x2_dct)) %>%
+  mutate(sd2dct = sd(x2_dct))
+data_Ashwini_sel_M_SD
+```
+
+
+## Change data type...
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Ashwini_sel_M_SD <- data_Ashwini_sel_M_SD %>%
+  mutate(ct_value = as.double(ct_value))
+data_Ashwini_sel_M_SD
+```
+
+## Pivoting 
+
+- Tidying messy data is hard and requires parctice
+- Read more here: https://r4ds.had.co.nz/tibbles.html
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Syn <- read_csv("../analysis/data/a-Syn-Data.csv")
+data_Syn
+# rename
+data_Syn_clean <- data_Syn  %>%
+  rename_with(~ gsub("_", "-", .x, fixed = TRUE)) %>%
+  rename_with(~ gsub("...", "_", .x, fixed = TRUE))
+
+tb_syn <- data_Syn_clean |>
+  pivot_longer(matches("aSyn"), 
+               names_to = c("condition", "sample"), 
+               names_sep = "_",
+               values_to = "fluorescence")
+ tb_syn
+```
+
+## Part 2 - data plotting
+
+<br>
+
+- once your data have been tidied up, plotting works like a charm
+- use ggplot2 and a tibble as input
+- ggplot2 is part of tidyverse and loads when you load tidyverse
+- very versatile and extendable data visualisation package
+- as input, you need a tibble (or a data.frame)
+- supply data, define aesthetic mapping, add layers, define axes, plot theme etc.
+- use the same theme (font size, line width etc.) across all figures in a project/paper/thesis
+- statistical tests
+- saving plots and source data
+
+![](images/ggplot2-2177292224.png)
+
+## Aesthetics, plot types and themes
+
+* need to define 'aesthetics', which variable goes to x, y axes, to colour, size, line thickness etc.
+* need to select plot type (geom_...  boxplot, line, points etc.)
+* need to define 'theme' such as axis thickness, fonts, ticks, borders etc.
+
+```{r eval = TRUE, echo = TRUE, fig.height = 4}
+
+iris %>%  
+  ggplot(aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_boxplot(notch = TRUE) +
+  theme_minimal()
+
+```
+
+## Resources
+
+<br>
+https://ggplot2.tidyverse.org/
+
+https://r4ds.hadley.nz/
+
+![](images/ggplot2-2177292224.png)
+
+## Plot data - Jose
+
+```{r}
+#| eval=TRUE, echo=TRUE
+
+plot_Jose1 <- data_Jose %>%
+  ggplot(aes(x = genotype, y = length, fill = factor(Treatment, level=c('Control', 'ABA', 'Sulfate')), na.rm = TRUE)) +
+  geom_boxplot() +
+  theme_minimal() +
+  scale_fill_manual(values = c("#D55E00", "#E69F00", "#cccccc")) +
+  guides(fill = guide_legend(title = "Treatment")) 
+
+plot_Jose1  
+ 
+```
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+
+library(ggplot2)
+plot_Jose2 <- data_Jose %>%
+  ggplot(aes(x = genotype, y = length, fill = factor(Treatment, level=c('Control', 'ABA', 'Sulfate')), na.rm = TRUE)) +
+  geom_violin() +
+  geom_point( position=position_jitterdodge(jitter.width = 0.3, dodge.width = 0.9), alpha = 0.5, size = 0.4) +
+  scale_fill_manual(values = c("#D55E00", "#E69F00", "#aaaaaa", "#dddddd")) +
+  guides(fill = guide_legend(title = "Treatment")) 
+plot_Jose2
+```
+
+## A note on languages
+
+- you can also use python, bash etc in code blocks
+
+```{python, echo=TRUE}
+#| label: fig-polar
+#| fig-cap: "A line plot on a polar axis"
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(
+  subplot_kw = {'projection': 'polar'} 
+)
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+## Plot data
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Ashwini_sel_M_SD %>%
+  group_by(gene) %>%
+  ggplot(aes(x = days, y = dt_ct, fill = gene )) +
+  geom_boxplot()
+
+data_Ashwini_sel_M_SD %>%
+  ggplot(aes(x = ct_value)) +
+  geom_histogram()
+
+```
+## Plot data
+
+```{r}
+#| eval=TRUE, echo=TRUE
+plot_Ashwini_ct <- data_Ashwini_sel_M_SD %>%
+  group_by(gene) %>%
+  ggplot(aes(x = gene, y = ct_value, fill = gene )) +
+  geom_boxplot(na.rm = TRUE) 
+plot_Ashwini_ct
+
+```
+
+## Plot the Synuclein data
+
+```{r eval = TRUE, echo = TRUE, fig.height = 5}
+plot_syn <- tb_syn %>%
+  ggplot(aes(x = Time, y = fluorescence, color = condition)) +
+  geom_smooth(method = 'loess') +
+  theme_minimal()
+plot_syn
+
+```
+
+
+## Read and preview data 3
+
+```{r}
+#| eval=TRUE, echo=TRUE
+data_Anchel <- readxl::read_excel("../analysis/data/240323 CIN Exp278 reporter assay - Anchel.xlsx")
+head(data_Anchel)
+glimpse(data_Anchel)
+str(data_Anchel)
+summary(data_Anchel)
+```
+
+
+## Save tidy data as source data for the plot/figure/paper
+
+```{r}
+#| echo=TRUE, eval=TRUE
+write_csv2(data_Ashwini_sel_M_SD, "../manuscript/source_data/FigureX_Ashwini_source_data.csv")
+# check
+read_csv2("../manuscript/source_data/data_Ashwini_sel_M_SD.csv")
+```
+
+
+## Format plots with predefined complete ggplot2 themes
+
+::: columns
+::: {.column width=50%}
+```{r}
+#| echo=TRUE, eval=TRUE
+plot_Jose1 +
+  theme_dark()
+plot_Jose1 +
+  theme_bw()
+plot_Jose1 +
+  theme_linedraw()
+```
+:::
+::: {.column width=50%}
+```{r}
+#| echo=TRUE, eval=TRUE
+plot_Jose2 +
+  theme_classic()
+plot_Jose2 +
+  theme_minimal()
+plot_Jose2 +
+  theme_light()
+```
+:::
+:::
+
+
+## Format plots with a common custom theme()
+
+- Themes are a powerful way to customize the non-data components of your plots: i.e. titles, labels, fonts, background, gridlines, and legends.
+
+
+
+```{r}
+#| echo=TRUE, eval=TRUE
+args(theme)
+```
+
+
+## Format plots with a common custom theme()
+
+```{r}
+#| echo=TRUE, eval=TRUE
+theme_plots <- theme_minimal() +
+  theme(
+    axis.title.x = element_text(size = 12),
+    axis.title.y = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.title = element_text(size = 12),
+    legend.key.size = unit(7, "mm")
+  )
+
+plot_Ashwini_ct <- plot_Ashwini_ct +
+  theme_plots
+plot_Ashwini_ct
+
+plot_Jose1 <- plot_Jose1 +
+  theme_plots
+plot_Jose1
+
+plot_Jose2 <- plot_Jose2 +
+  theme_plots
+plot_Jose2
+
+plot_syn <- plot_syn +
+  theme_plots
+plot_syn
+```
+
+## Optional - save plots
+
+
+```{r}
+#| echo=TRUE, eval=TRUE
+ggsave( "../analysis/pictures/plot_Jose1a.png",
+  limitsize = FALSE,
+  units = c("px"), plot_Jose1,
+  width = 2400, height = 1400, bg = "white"
+)
+
+# save in a different size
+ggsave( "../analysis/pictures/plot_Jose1b.png",
+  limitsize = FALSE,
+  units = c("px"), plot_Jose2,
+  width = 2400, height = 2000, bg = "white"
+)
+
+
+ggsave(
+  "../analysis/pictures/synuclein_plot.png", plot_syn, 
+  bg = "white"
+  )
+
+```
+
+## Assemble figure with cowplot and patchwork
+
+```{r}
+#| echo=TRUE, eval=TRUE
+
+img1 <- readPNG("../analysis/pictures/plot_Jose1a.png")
+img2 <- readPNG("../analysis/pictures/plot_Jose1b.png")
+
+panel_JoseA <- ggdraw() + draw_image(img1)
+panel_JoseB <- ggdraw() + draw_image(img2)
+
+#define layout with textual representation
+layout <- "
+AB
+CD"
+
+#assemble multipanel figure based on layout
+Figure_Jose <- panel_JoseA + panel_JoseB + plot_Jose1 + plot_Jose2 +
+  plot_layout(design = layout, heights = c(1, 1, 1, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png and pdf
+ggsave("../manuscript/figures/Figure_Jose.png", limitsize = FALSE, 
+       units = c("px"), Figure_Jose, width = 4000, height = 2000,
+       bg = "white")
+
+ggsave("../manuscript/figures/Figure_Jose.pdf", limitsize = FALSE, 
+       units = c("px"), Figure_Jose, width = 3000, height = 1600)
+
+image_read("../manuscript/figures/Figure_Jose.png")
+```
+
+
+## Annotating a ggplot object
+
+```{r}
+#| echo=TRUE, eval=TRUE
+
+plot_syn_ann <- plot_syn +
+  annotate("segment", x = 20, xend = 50, y = 1, yend = 1, linewidth = 1)+
+  annotate("text", x = 34, y = 300, label = "30 sec", size = 3)
+plot_syn_ann
+```
+
+## Annotating an image
+
+```{r}
+#| echo=TRUE, eval=TRUE
+
+#read images
+img_INNOS <- magick::image_read("../analysis/pictures/INNOS_synapses.png")
+
+#define arrow endpoints 
+arrow <- data.frame(x1 = 0.95, x2 = 0.95, y1 = 0.8, y2 = 0.9)
+
+#add text labels
+panel_INNOS <- ggdraw() + 
+  draw_image(img_INNOS) +
+  draw_label("INNOS", x = 0.3, y = 0.99, size = 10) +
+  draw_label("NS plexus", x = 0.485, y = 0.59, size = 8) +
+  draw_label("outgoing", x = 0.9, y = 0.45, size = 10, color='#E69F00') +
+  draw_label("incoming", x = 0.89, y = 0.5, size = 10, color='#0072B2') +
+  draw_label("D", x = 0.95, y = 0.93, size = 6) +
+  draw_label("V", x = 0.95, y = 0.77, size = 6) +
+  draw_label("*", x = 0.5, y = 0.29, color='black',size = 18,fontface='plain') +
+  geom_segment(aes(x = x1, y = y1, xend = x2, yend = y2), data = arrow, 
+               arrow = arrow(ends = "both", type = "closed", length = unit(0.1,"cm")),
+               lineend = "butt",
+               linejoin = "mitre",
+               arrow.fill = "black", size = 0.2)
+
+#define layout
+layout <- "AB"
+
+#assemble multipanel figure based on layout
+Figure_INNOS <- plot_syn_ann + panel_INNOS +
+  plot_layout(design = layout, widths = c(2, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png
+ggsave(
+  "../manuscript/figures/Figure_INNOS.png", limitsize = FALSE,
+  units = c("px"), Figure_INNOS, 
+  width = 3000, height = 1000,
+  bg = "white"
+  )
+
+#save figure as pdf
+ggsave("../manuscript/figures/Figure_IHC.pdf", limitsize = FALSE, 
+       units = c("px"), Figure_INNOS, width = 3000, height = 1000)
+
+image_read("../manuscript/figures/Figure_IHC.png")
+#img
+
+
+```
+
+
+
+## Adding consistent scale bars
+
+
+- you could add the scale bar directly on the image e.g., in ImageJ, however..
+- your scale bars may be misaligned and of varying thickness
+- you can use cowplot::draw_line instead
+- the x positions of the start and end of the line are defined as % of the panel width
+- if you know the width of the image (e.g., can add it to file name), it is easy to calculate the size of the scale bar
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: true
+
+#read images and make annotated panel
+panel_NOS2d_HCR <- ggdraw() + draw_image(readPNG("../analysis/pictures/HCR-IHC_51_AP_NOS_actub_56um.png")) +
+  draw_label("in situ HCR", x = 0.3, y = 0.99, size = 10) +
+  draw_label("NOS", x = 0.12, y = 0.9, color="magenta", size = 11, fontface="italic") +
+  draw_label("acTub", x = 0.36, y = 0.9, color="green", size = 11, fontface="plain") +
+  draw_line(x = c(0.1, 0.46), y = c(0.08, 0.08), color = "white", size = 0.5) +
+  draw_label(expression(paste("20 ", mu, " m")), x = 0.28, y = 0.11, color = "white", size = 8)
+  
+
+panel_NIT_HCR <- ggdraw() + draw_image(readPNG("../analysis/pictures/HCR_72_AP_NIT_94um.png")) +
+  draw_label("transgene + IHC", x = 0.38, y = 0.99, size = 10) +
+  draw_label("NOSp::palmi-3xHA", x = 0.34, y = 0.9, color="magenta", size = 10, fontface="plain") +
+  draw_label("acTub", x = 0.8, y = 0.9, color="green", size = 10, fontface="plain") +
+  draw_line(x = c(0.1, 0.31), y = c(0.08, 0.08), color = "white", size = 0.5) 
+```
+
+```{r}
+#| echo=TRUE, eval=TRUE
+
+#introduce gap in layout
+layout <- "A#B"
+
+#assemble multipanel figure based on layout
+Figure_scalebars <- panel_NOS2d_HCR + panel_NIT_HCR +
+  plot_layout(design = layout, widths = c(1, 0.03, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png
+ggsave(
+  "../manuscript/figures/Figure_scalebars.png",
+  units = c("px"), Figure_scalebars, 
+  width = 1700, height = 940, bg = "white"
+  )
+
+image_read("../manuscript/figures/Figure_scalebars.png")
+image_read("../manuscript/figures/Figure_scalebars.png")
+```
+
+
+## Fine-tuning figure size and gaps
+
+### Excercises
+
+- save the figure in different sizes 
+- introduce gap with # into layout, also need to define width of gap as say 0.05
+- change position of scalebar and scalebar legend
+
+```{r}
+#| echo=TRUE, eval=TRUE
+
+#no gap in layout
+layout1 <- "AB"
+
+#assemble multipanel figure based on layout
+Figure_scalebars <- panel_NOS2d_HCR + panel_NIT_HCR +
+  plot_layout(design = layout1, widths = c(1, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png
+ggsave(
+  "../manuscript/figures/Figure_scalebars_no_gap.png", 
+  limitsize = FALSE,
+  units = c("px"), Figure_scalebars, 
+  width = 1700, height = 940,
+  bg = "white"
+  )
+
+image_read("../manuscript/figures/Figure_scalebars_no_gap.png")
+
+#introduce gap in layout
+layout2 <- "A#B"
+
+#assemble multipanel figure based on layout
+Figure_scalebars <- panel_NOS2d_HCR + panel_NIT_HCR +
+  plot_layout(design = layout2, widths = c(1, 0.03, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png
+ggsave(
+  "../manuscript/figures/Figure_scalebars_gap.png", 
+  limitsize = FALSE,
+  units = c("px"), Figure_scalebars, 
+  width = 1700, height = 940,
+  bg = "white"
+  )
+
+image_read("../manuscript/figures/Figure_scalebars_gap.png")
+
+```
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.

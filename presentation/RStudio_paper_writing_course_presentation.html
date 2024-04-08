@@ -96,7 +96,6 @@
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="RStudio_paper_writing_course_presentation_files/libs/revealjs/dist/theme/quarto.css">
-  <link rel="stylesheet" href="xaringan-themer-GJ.css">
   <link href="RStudio_paper_writing_course_presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="RStudio_paper_writing_course_presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="RStudio_paper_writing_course_presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -406,21 +405,201 @@ Gáspár Jékely
 </div>
 
 </section>
-<section id="rule-1-avoid-spaces-in-file-names" class="slide level2">
-<h2>Rule 1 – avoid spaces in file names</h2>
+<section id="course-program" class="slide level2">
+<h2>Course program</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="day-1">Day 1</h3>
+<p><br> - <strong>Part 1</strong>: Why open science? Project management, data import, tidy data</p>
+<ul>
+<li><p>12:30-13:30 lunch break</p></li>
+<li><p><strong>Part 2</strong>: Plotting, figure assembly</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="day-2">Day 2</h3>
+<p><br> - <strong>Part 3</strong>: Figure assembly cont., tables, manuscript writing, data and figure embedding</p>
+<ul>
+<li><p>12:30-13:30 lunch break</p></li>
+<li><p><strong>Part 4</strong>: GitHub, collaboration, sharing, version control</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li>The <a href="https://rstudio-education.github.io/tidyverse-cookbook/">Tidyverse Cookbook</a> (edited by Garrett Grolemund) https://rstudio-education.github.io/tidyverse-cookbook/</li>
+</ul>
+</section>
+<section id="why-do-we-need-open-science" class="slide level2">
+<h2>Why do we need open science</h2>
+<ul>
+<li>Reproducibility crisis</li>
+<li>Only a small fraction of research data is available</li>
+<li>An even smaller fraction of code is available (physicists are notoriously bad in sharing)</li>
+<li>Open access, if exists, is very expensive and maintains the profit of legacy publishers</li>
+<li>Scholarly literature is antiquated, dysfunctional and rewards prestige/hype over quality and integrity</li>
+<li>Scholarly workflows use non-professional, error-prone, closed-source software (MS, Adobe, Prism etc.) that makes sharing, integration, automation and collaboration difficult</li>
+<li>The final product of years of research is often only a single pdf file (1990s tech) behind a paywall</li>
+<li>Data, code and text are not searchable, reuseable, discoverable, shareable</li>
+</ul>
+</section>
+<section id="most-source-data-collected-by-scientists-are-not-available" class="slide level2">
+<h2>Most source data collected by scientists are not available</h2>
+
+<img data-src="images/Data_publication_Pyramide.png" class="r-stretch"></section>
+<section id="most-scientists-use-software-developed-for-accounting" class="slide level2">
+<h2>Most scientists use software developed for accounting</h2>
+<p><img data-src="images/Scientists_rename_genes.png"> <a href="https://www.theverge.com/2020/8/6/21355674/human-genes-rename-microsoft-excel-misreading-dates">theverge.com</a></p>
+<ul>
+<li>the symbol MARCH1 has now become MARCHF1, while SEPT1 has become SEPTIN1, and so on</li>
+</ul>
+<p><br></p>
+</section>
+<section id="gene-name-errors-are-widespread-in-the-scientific-literature" class="slide level2">
+<h2>Gene name errors are widespread in the scientific literature</h2>
+<p><img data-src="images/13059_2016_1044_Fig1_HTML.webp"></p>
+
+<aside><div>
+<p><a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-1044-7">Ziemann et al.&nbsp;(2016)</a></p>
+</div></aside></section>
+<section id="code-is-very-often-not-shared-or-not-shared-stably" class="slide level2">
+<h2>Code is very often not shared or not shared stably</h2>
+<ul>
+<li><em>We assess the effectiveness of such a policy by (i) requesting data and code from authors and (ii) attempting replication of the published findings. We chose a random sample of 204 scientific papers published in the journal Science … We found that we were able to obtain artifacts from 44% of our sample and were able to reproduce the findings for 26%.</em></li>
+</ul>
+<div>
+<ul>
+<li class="fragment"><p>“When you approach a PI for the source codes and raw data, you better explain who you are, whom you work for, why you need the data and what you are going to do with it.”</p></li>
+<li class="fragment"><p>“I have to say that this is a very unusual request without any explanation! Please ask your supervisor to send me an email with a detailed, and I mean detailed, explanation.”</p></li>
+<li class="fragment"><p>“The data files remains our property and are not deposited for free access. Please, let me know the purpose you want to get the file and we will see how we can help you.”</p></li>
+<li class="fragment"><p>“We do not typically share our internal data or code with people outside our collaboration.”</p></li>
+<li class="fragment"><p>sigh…</p></li>
+</ul>
+</div>
+<p><img data-src="images/Stodden_PNAS.png" class="absolute" style="top: 480px; left: 300px; height: 200px; "></p>
+
+<aside><div>
+<p><a href="https://doi.org/10.1073/pnas.1708290115">Stodden et al.&nbsp;(2018)</a></p>
+</div></aside></section>
+<section id="current-state-of-scholarly-digital-infrastructure-and-knowhow" class="slide level2">
+<h2>Current state of scholarly digital infrastructure and knowhow</h2>
+
+<img src="https://media1.tenor.com/images/f6362876996697b6a6f554b2ac3d3013/tenor.gif?itemid=10488408" width="200" class="r-stretch"></section>
+<section id="what-this-course-is-about-what-you-can-do-to-be-open" class="slide level2">
+<h2>What this course is about: what you can do to be open</h2>
+<ul>
+<li>tools and approaches for transparent and open publishing</li>
+<li>a paper is not only text and figures, but also data and code</li>
+<li>all should be shared for reproducibility and openness</li>
+<li>otherwise it is not really ‘published’</li>
+<li>we will use Rstudio to learn a comprehensive paper-writing pipeline</li>
+<li>code, tabulated data, figures, text, references, supplements all in one place</li>
+<li>collaborative working and sharing via GitHub (or other public repository)</li>
+<li>the figures are linked to their underlying data and code to generate them</li>
+<li>efficient version control</li>
+<li>faster, more transparent and reproducible workflow</li>
+<li>no software license is needed (no MS, no Adobe, no Matlab)</li>
+<li>once you master the approach I advocate, you don’t want to go back…</li>
+</ul>
+</section>
+<section id="part-1---packages-project-management-data-import-tidy-data" class="slide level2">
+<h2>Part 1 - Packages, project management, data import, tidy data</h2>
+<p><br></p>
+<ul>
+<li>some rules on files, folders</li>
+<li>R projects</li>
+<li>installing and loading packages</li>
+<li>project templates</li>
+<li>importing various types of datasets</li>
+<li>principles of tidy data, tidying of messy datasets</li>
+</ul>
+</section>
+<section id="rule-nr.-1-relative-working-directories" class="slide level2">
+<h2>Rule nr. 1 – relative working directories</h2>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">list.files</span>(<span class="st">"../analysis/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/home/gj274/code/RStudio_paper_writing_course/presentation"</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Never use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you.</p></li>
+<li><p>Do not use setwd() to set your working dir</p></li>
+<li><p>Keep all files associated with a project together — input data, R scripts, analytical results, figures. This is such a wise and common practice that RStudio has built-in support for this via <strong>Rprojects</strong>.</p></li>
+<li><p>If you create a new Rproject, your working dir will in general be where you save the new project</p></li>
+<li><p>Whenever you refer to a file with a relative path it will look for it in your wd.</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="fu">list.files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "custom.scss"                                        
+[2] "images"                                             
+[3] "RStudio_paper_writing_course_presentation_files"    
+[4] "RStudio_paper_writing_course_presentation.html"     
+[5] "RStudio_paper_writing_course_presentation.qmd"      
+[6] "RStudio_paper_writing_course_presentation.rmarkdown"
+[7] "sessionInfo.txt"                                    </code></pre>
+</div>
+</div>
+</section>
+<section id="project-management" class="slide level2">
+<h2>Project management</h2>
+<ul>
+<li><p>Use folders relative to your main .Rproject file (e.g.&nbsp;My_next_paper.Rproject)</p></li>
+<li><p>Use a consistent directory structure to store code, data, text, figures, supplements, etc.</p></li>
+<li><p>Can be ensured if you always use the same project template</p></li>
+<li><p>We will use https://github.com/JekelyLab/RStudio_paper_writing_course</p></li>
+<li><p>Go to github and clone the project to your account (“Use this template”)</p></li>
+<li><p>Go to RStudio -&gt; new project -&gt; version control -&gt; git -&gt; git URL of your new project</p></li>
+<li><p>select local dir and download the project with all directories to your computer</p></li>
+<li><p>let’s check the project</p></li>
+<li><p>you can rename the .Rproject file to ‘my favourite file name’</p></li>
+</ul>
+</section>
+<section id="installing-packages" class="slide level2">
+<h2>Installing packages</h2>
+<ul>
+<li>install the <strong>tidyverse</strong> package</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>then load the package</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href=""></a><span class="fu">library</span>(png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="you-can-source-packages-and-functions-from-one-file" class="slide level2">
+<h2>You can source packages and functions from one file</h2>
+<ul>
+<li><p>open the R script analysis/scripts/Course_exercises.R with the example code</p></li>
+<li><p>source several packages and functions, listed in one file consistently across scripts</p></li>
+</ul>
+</section>
+<section id="general-good-practice-avoid-spaces-in-file-names" class="slide level2">
+<h2>General good practice – avoid spaces in file names</h2>
+<div>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">list.files</span>(<span class="st">"../analysis/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "24_01_22qpcr_1 - ash pal.xlsx"                 
 [2] "240323 CIN Exp278 reporter assay - Anchel.xlsx"
-[3] "data - José - March 2024.xlsx"                 
-[4] "head_celltypes_syn_matrix.csv"                 </code></pre>
+[3] "a-Syn-Data.csv"                                
+[4] "data - José - March 2024.xlsx"                 
+[5] "head_celltypes_syn_matrix.csv"                 
+[6] "Tom_filopodia_analyses.csv"                    
+[7] "Tom_filopodia_analyses.csv~"                   </code></pre>
 </div>
 </div>
 <p><br></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/data - José - March 2024.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/data - José - March 2024.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 692 × 3
    Treatment genotype       length
@@ -438,39 +617,65 @@ Gáspár Jékely
 # ℹ 682 more rows</code></pre>
 </div>
 </div>
+</div>
 </section>
-<section id="rule-2-relative-working-directories" class="slide level2">
-<h2>Rule 2 – relative working directories</h2>
-<p><br></p>
+<section id="save-and-share-your-computer-environment-and-packages" class="slide level2">
+<h2>Save and share your computer environment and packages</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co">#save session info and Rstudio version info for reproducibility</span></span>
+<span id="cb11-2"><a href=""></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "/home/gj274/code/RStudio_paper_writing_course/presentation"</code></pre>
+<pre><code>R version 4.3.2 (2023-10-31)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 22.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.10.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.10.0
+
+locale:
+ [1] LC_CTYPE=en_GB.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_GB.UTF-8        LC_COLLATE=en_GB.UTF-8    
+ [5] LC_MONETARY=en_GB.UTF-8    LC_MESSAGES=en_GB.UTF-8   
+ [7] LC_PAPER=en_GB.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Europe/Berlin
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] janitor_2.2.0      magick_2.8.3       rstudioapi_0.15.0  ggpubr_0.6.0      
+ [5] RColorBrewer_1.1-3 patchwork_1.2.0    png_0.1-8          cowplot_1.1.3     
+ [9] lubridate_1.9.3    forcats_1.0.0      stringr_1.5.1      dplyr_1.1.4       
+[13] purrr_1.0.2        readr_2.1.5        tidyr_1.3.1        tibble_3.2.1      
+[17] ggplot2_3.5.0      tidyverse_2.0.0   
+
+loaded via a namespace (and not attached):
+ [1] utf8_1.2.4       generics_0.1.3   rstatix_0.7.2    stringi_1.8.3   
+ [5] hms_1.1.3        digest_0.6.34    magrittr_2.0.3   evaluate_0.23   
+ [9] grid_4.3.2       timechange_0.3.0 fastmap_1.1.1    cellranger_1.1.0
+[13] jsonlite_1.8.8   backports_1.4.1  fansi_1.0.6      scales_1.3.0    
+[17] abind_1.4-5      cli_3.6.2        rlang_1.1.3      munsell_0.5.0   
+[21] withr_3.0.0      yaml_2.3.8       tools_4.3.2      tzdb_0.4.0      
+[25] ggsignif_0.6.4   colorspace_2.1-0 broom_1.0.5      vctrs_0.6.5     
+[29] R6_2.5.1         lifecycle_1.0.4  snakecase_0.11.1 car_3.1-2       
+[33] pkgconfig_2.0.3  pillar_1.9.0     gtable_0.3.4     Rcpp_1.0.12     
+[37] glue_1.7.0       xfun_0.42        tidyselect_1.2.0 knitr_1.45      
+[41] htmltools_0.5.7  carData_3.0-5    rmarkdown_2.25   compiler_4.3.2  
+[45] readxl_1.4.3    </code></pre>
 </div>
-</div>
-<ul>
-<li><p>Never use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you.</p></li>
-<li><p>Keep all files associated with a project together — input data, R scripts, analytical results, figures. This is such a wise and common practice that RStudio has built-in support for this via Rprojects.</p></li>
-<li><p>If you create a new Rproject, your working dir will in general be where you save the new project</p></li>
-<li><p>Whenever you refer to a file with a relative path it will look for it in your wd.</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">list.files</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "custom.scss"                                        
-[2] "RStudio_paper_writing_course_presentation_files"    
-[3] "RStudio_paper_writing_course_presentation.html"     
-[4] "RStudio_paper_writing_course_presentation.qmd"      
-[5] "RStudio_paper_writing_course_presentation.rmarkdown"
-[6] "xaringan-themer-GJ.css"                             </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">writeLines</span>(<span class="fu">capture.output</span>(<span class="fu">sessionInfo</span>()), <span class="st">"sessionInfo.txt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="read-and-preview-data-1" class="slide level2">
 <h2>Read and preview data 1</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>data_Jose <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/data - José - March 2024.xlsx"</span>)</span>
-<span id="cb9-2"><a href=""></a><span class="fu">head</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>data_Jose <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/data - José - March 2024.xlsx"</span>)</span>
+<span id="cb14-2"><a href=""></a><span class="fu">head</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Treatment genotype       length
@@ -482,7 +687,7 @@ Gáspár Jékely
 5 Control   CLE25_OE_1.1#2   2.21
 6 Control   CLE25_OE_1.1#2   2.83</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">glimpse</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="fu">glimpse</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 692
 Columns: 3
@@ -490,14 +695,14 @@ $ Treatment &lt;chr&gt; "Control", "Control", "Control", "Control", "Control", "
 $ genotype  &lt;chr&gt; "CLE25_OE_1.1#2", "CLE25_OE_1.1#2", "CLE25_OE_1.1#2", "CLE25…
 $ length    &lt;dbl&gt; 2.190, 2.622, 2.673, 2.276, 2.209, 2.829, 2.130, 2.761, 2.88…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">str</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">str</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [692 × 3] (S3: tbl_df/tbl/data.frame)
  $ Treatment: chr [1:692] "Control" "Control" "Control" "Control" ...
  $ genotype : chr [1:692] "CLE25_OE_1.1#2" "CLE25_OE_1.1#2" "CLE25_OE_1.1#2" "CLE25_OE_1.1#2" ...
  $ length   : num [1:692] 2.19 2.62 2.67 2.28 2.21 ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">summary</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a><span class="fu">summary</span>(data_Jose)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Treatment           genotype             length     
  Length:692         Length:692         Min.   :0.948  
@@ -509,48 +714,18 @@ $ length    &lt;dbl&gt; 2.190, 2.622, 2.673, 2.276, 2.209, 2.829, 2.130, 2.761, 
 </div>
 </div>
 </section>
-<section id="plot-data---jose" class="slide level2">
-<h2>Plot data - Jose</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>plot_Jose1 <span class="ot">&lt;-</span> data_Jose <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> genotype, <span class="at">y =</span> length, <span class="at">fill =</span> <span class="fu">factor</span>(Treatment, <span class="at">level=</span><span class="fu">c</span>(<span class="st">'Control'</span>, <span class="st">'ABA'</span>, <span class="st">'Sulfate'</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb17-3"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb17-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb17-5"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D55E00"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#cccccc"</span>)) <span class="sc">+</span></span>
-<span id="cb17-6"><a href=""></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Treatment"</span>)) </span>
-<span id="cb17-7"><a href=""></a></span>
-<span id="cb17-8"><a href=""></a>plot_Jose1  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb18-2"><a href=""></a>plot_Jose2 <span class="ot">&lt;-</span> data_Jose <span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> genotype, <span class="at">y =</span> length, <span class="at">fill =</span> <span class="fu">factor</span>(Treatment, <span class="at">level=</span><span class="fu">c</span>(<span class="st">'Control'</span>, <span class="st">'ABA'</span>, <span class="st">'Sulfate'</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb18-4"><a href=""></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb18-5"><a href=""></a>  <span class="fu">geom_point</span>( <span class="at">position=</span><span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.3</span>, <span class="at">dodge.width =</span> <span class="fl">0.9</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb18-6"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D55E00"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#aaaaaa"</span>, <span class="st">"#dddddd"</span>)) <span class="sc">+</span></span>
-<span id="cb18-7"><a href=""></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Treatment"</span>)) </span>
-<span id="cb18-8"><a href=""></a>plot_Jose2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
+<section id="your-workspace-in-r" class="slide level2">
+<h2>Your workspace in R</h2>
+<ul>
+<li>Recreate, rather than save workspace, save your coda and data, not workspace <br></li>
+</ul>
+
+<img src="images/rstudio-workspace.png" width="60%" class="r-stretch"></section>
 <section id="read-and-preview-data-2" class="slide level2">
 <h2>Read and preview data 2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a>data_Ashwini <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/24_01_22qpcr_1 - ash pal.xlsx"</span>)</span>
-<span id="cb19-2"><a href=""></a><span class="fu">head</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href=""></a>data_Ashwini <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/24_01_22qpcr_1 - ash pal.xlsx"</span>)</span>
+<span id="cb22-2"><a href=""></a><span class="fu">head</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 23
   Gene  Days  `Raw Data` `Ct Value`         `Dt Ct` `2^(-dct)` `MEAN 2^(-dCt)`
@@ -566,7 +741,7 @@ $ length    &lt;dbl&gt; 2.190, 2.622, 2.673, 2.276, 2.209, 2.829, 2.130, 2.761, 
 #   ...16 &lt;chr&gt;, ...17 &lt;chr&gt;, ...18 &lt;chr&gt;, ...19 &lt;chr&gt;, ...20 &lt;chr&gt;,
 #   ...21 &lt;chr&gt;, ...22 &lt;chr&gt;, ...23 &lt;chr&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">glimpse</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a><span class="fu">glimpse</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 105
 Columns: 23
@@ -594,7 +769,7 @@ $ ...21           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "9.070491735
 $ ...22           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, "Foxg1", NA, "2.8294514961…
 $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.7496262363729…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">str</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a><span class="fu">str</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [105 × 23] (S3: tbl_df/tbl/data.frame)
  $ Gene         : chr [1:105] "Nanog" NA NA NA ...
@@ -621,7 +796,7 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
  $ ...22        : chr [1:105] NA NA NA NA ...
  $ ...23        : chr [1:105] NA NA NA NA ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a><span class="fu">summary</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">summary</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     Gene               Days             Raw Data           Ct Value        
  Length:105         Length:105         Length:105         Length:105        
@@ -674,13 +849,120 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 </div>
 </div>
 </section>
-<section id="lets-try-to-fix-this" class="slide level2">
-<h2>Let’s try to fix this…</h2>
+<section id="tidy-data---definitions" class="slide level2">
+<h2>Tidy data - definitions</h2>
+<p>from https://r4ds.hadley.nz/data-visualize</p>
+<ul>
+<li>A <strong>variable</strong> is a quantity, quality, or property that you can measure</li>
+<li>A <strong>value</strong> is the state of a variable when you measure it. The value of a variable may change from measurement to measurement.</li>
+<li>An <strong>observation</strong> is a set of measurements made under similar conditions (you usually make all of the measurements in an observation at the same time and on the same object). An observation will contain several values, each associated with a different variable. We’ll sometimes refer to an observation as a data point.</li>
+</ul>
+</section>
+<section id="tidy-data---definitions-1" class="slide level2">
+<h2>Tidy data - definitions</h2>
+<ul>
+<li><p>Tabular data is a set of values, each associated with a variable and an observation.</p></li>
+<li><p>Tabular data is tidy if each value is placed in its own “cell”, each variable in its own column, and each observation in its own row.</p></li>
+<li><p>“Tidy datasets are all alike, but every messy dataset is messy in its own way.” –– Hadley Wickham</p></li>
+</ul>
+<p><strong>There are three interrelated rules which make a dataset tidy:</strong></p>
+<ul>
+<li>Each variable must have its own column.</li>
+<li>Each observation must have its own row.</li>
+<li>Each value must have its own cell.</li>
+</ul>
+
+<img src="images/tidy-1.png" width="60%" class="r-stretch"></section>
+<section id="tidy-data---an-example-tidy-dataset" class="slide level2">
+<h2>Tidy data - an example tidy dataset</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>Gene <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Nanog"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"oct4"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"sox2"</span>, <span class="dv">15</span>),</span>
-<span id="cb27-2"><a href=""></a>  <span class="fu">rep</span>(<span class="st">"Nestin"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"pax6"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"Foxg1"</span>, <span class="dv">15</span>),</span>
-<span id="cb27-3"><a href=""></a>  <span class="fu">rep</span>(<span class="st">"GAPDH"</span>, <span class="dv">15</span>))</span>
-<span id="cb27-4"><a href=""></a>Gene</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">head</span>(iris), <span class="at">format =</span> <span class="st">'html'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sepal.Length</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sepal.Width</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Petal.Length</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Petal.Width</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5.1</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</section>
+<section id="tibbles-tabular-data-in-tidy-format" class="slide level2">
+<h2>Tibbles = tabular data in tidy format</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a><span class="fu">vignette</span>(<span class="st">"tibble"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Tibbles are a modern take on data frames.</li>
+<li>They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating.</li>
+<li>Tibbles encapsulate best practices for data frames.</li>
+<li>tibble() It never uses row.names().</li>
+</ul>
+</section>
+<section id="tidy-data-why-should-i-care" class="slide level2">
+<h2>Tidy data – <strong>Why should I care?</strong></h2>
+<p><br> - after reading your data, you should always try to convert them into a tibble - downstream analyses (plotting, mutating, sharing etc.) will be a lot easier - data coming from other software, collaborators etc. are often ‘messy’ - it is worth investing the time in tidying the data first - sometimes it is tricky, as we will see…</p>
+</section>
+<section id="lets-try-to-fix-a-messy-dataset" class="slide level2">
+<h2>Let’s try to fix a messy dataset…</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>Gene <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Nanog"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"oct4"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"sox2"</span>, <span class="dv">15</span>),</span>
+<span id="cb32-2"><a href=""></a>  <span class="fu">rep</span>(<span class="st">"Nestin"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"pax6"</span>, <span class="dv">15</span>), <span class="fu">rep</span>(<span class="st">"Foxg1"</span>, <span class="dv">15</span>),</span>
+<span id="cb32-3"><a href=""></a>  <span class="fu">rep</span>(<span class="st">"GAPDH"</span>, <span class="dv">15</span>))</span>
+<span id="cb32-4"><a href=""></a>Gene</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog" 
   [9] "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "Nanog"  "oct4"  
@@ -697,8 +979,8 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
  [97] "GAPDH"  "GAPDH"  "GAPDH"  "GAPDH"  "GAPDH"  "GAPDH"  "GAPDH"  "GAPDH" 
 [105] "GAPDH" </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>data_Ashwini<span class="sc">$</span>Gene <span class="ot">&lt;-</span> Gene</span>
-<span id="cb29-2"><a href=""></a><span class="fu">head</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>data_Ashwini<span class="sc">$</span>Gene <span class="ot">&lt;-</span> Gene</span>
+<span id="cb34-2"><a href=""></a><span class="fu">head</span>(data_Ashwini)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 23
   Gene  Days  `Raw Data` `Ct Value`         `Dt Ct` `2^(-dct)` `MEAN 2^(-dCt)`
@@ -740,11 +1022,11 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 <section id="add-mean-and-sd-columns-with-group_by-and-mutate" class="slide level2">
 <h2>Add mean and SD columns with group_by() and mutate()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="ot">&lt;-</span> data_Ashwini_sel <span class="sc">%&gt;%</span></span>
-<span id="cb32-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
-<span id="cb32-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">mean2dct =</span> <span class="fu">mean</span>(x2_dct)) <span class="sc">%&gt;%</span></span>
-<span id="cb32-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">sd2dct =</span> <span class="fu">sd</span>(x2_dct))</span>
-<span id="cb32-5"><a href=""></a>data_Ashwini_sel_M_SD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="ot">&lt;-</span> data_Ashwini_sel <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
+<span id="cb37-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">mean2dct =</span> <span class="fu">mean</span>(x2_dct)) <span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">sd2dct =</span> <span class="fu">sd</span>(x2_dct))</span>
+<span id="cb37-5"><a href=""></a>data_Ashwini_sel_M_SD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 105 × 8
 # Groups:   gene [7]
@@ -767,9 +1049,9 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 <section id="change-data-type" class="slide level2">
 <h2>Change data type…</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="ot">&lt;-</span> data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">ct_value =</span> <span class="fu">as.double</span>(ct_value))</span>
-<span id="cb34-3"><a href=""></a>data_Ashwini_sel_M_SD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="ot">&lt;-</span> data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">ct_value =</span> <span class="fu">as.double</span>(ct_value))</span>
+<span id="cb39-3"><a href=""></a>data_Ashwini_sel_M_SD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 105 × 8
 # Groups:   gene [7]
@@ -789,27 +1071,184 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 </div>
 </div>
 </section>
-<section id="plot-data" class="slide level2">
-<h2>Plot data</h2>
+<section id="pivoting" class="slide level2">
+<h2>Pivoting</h2>
+<ul>
+<li>Tidying messy data is hard and requires parctice</li>
+<li>Read more here: https://r4ds.had.co.nz/tibbles.html</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
-<span id="cb36-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> days, <span class="at">y =</span> dt_ct, <span class="at">fill =</span> gene )) <span class="sc">+</span></span>
-<span id="cb36-4"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a>data_Syn <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"../analysis/data/a-Syn-Data.csv"</span>)</span>
+<span id="cb41-2"><a href=""></a>data_Syn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 368 × 13
+    Time aSyn...2 aSyn...3 aSyn...4 `aSyn-DMSO...5` `aSyn-DMSO...6`
+   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;
+ 1 0         655.     639.     687.            265.            381.
+ 2 0.264    1151.    1006.     863.            793.            860.
+ 3 0.527    1173     1104     1082             910.           1222.
+ 4 0.791    2542.    2191.    2451.           1062            1273 
+ 5 1.05     3922     3573     3790            1284            1385 
+ 6 1.32     4716.    4638.    4670.           2456.           2869.
+ 7 1.58     5322.    5424.    5323.           2955.           3986.
+ 8 1.85     5813     6041     5794            3661            4463 
+ 9 2.11     5983.    6325.    6227.           4345.           5133.
+10 2.37     6147.    6584.    6351.           4369.           5363.
+# ℹ 358 more rows
+# ℹ 7 more variables: `aSyn-DMSO...7` &lt;dbl&gt;, aSyn_D2_13uM...8 &lt;dbl&gt;,
+#   aSyn_D2_13uM...9 &lt;dbl&gt;, aSyn_D2_13uM...10 &lt;dbl&gt;, aSyn_D3_0.67mM...11 &lt;dbl&gt;,
+#   aSyn_D3_0.67mM...12 &lt;dbl&gt;, aSyn_D3_0.67mM...13 &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="co"># rename</span></span>
+<span id="cb43-2"><a href=""></a>data_Syn_clean <span class="ot">&lt;-</span> data_Syn  <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href=""></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">"_"</span>, <span class="st">"-"</span>, .x, <span class="at">fixed =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb43-4"><a href=""></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">gsub</span>(<span class="st">"..."</span>, <span class="st">"_"</span>, .x, <span class="at">fixed =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb43-5"><a href=""></a></span>
+<span id="cb43-6"><a href=""></a>tb_syn <span class="ot">&lt;-</span> data_Syn_clean <span class="sc">|&gt;</span></span>
+<span id="cb43-7"><a href=""></a>  <span class="fu">pivot_longer</span>(<span class="fu">matches</span>(<span class="st">"aSyn"</span>), </span>
+<span id="cb43-8"><a href=""></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"condition"</span>, <span class="st">"sample"</span>), </span>
+<span id="cb43-9"><a href=""></a>               <span class="at">names_sep =</span> <span class="st">"_"</span>,</span>
+<span id="cb43-10"><a href=""></a>               <span class="at">values_to =</span> <span class="st">"fluorescence"</span>)</span>
+<span id="cb43-11"><a href=""></a> tb_syn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4,416 × 4
+    Time condition      sample fluorescence
+   &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;         &lt;dbl&gt;
+ 1     0 aSyn           2              655.
+ 2     0 aSyn           3              639.
+ 3     0 aSyn           4              687.
+ 4     0 aSyn-DMSO      5              265.
+ 5     0 aSyn-DMSO      6              381.
+ 6     0 aSyn-DMSO      7              424.
+ 7     0 aSyn-D2-13uM   8              436 
+ 8     0 aSyn-D2-13uM   9              461 
+ 9     0 aSyn-D2-13uM   10             672 
+10     0 aSyn-D3-0.67mM 11             572.
+# ℹ 4,406 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="part-2---data-plotting" class="slide level2">
+<h2>Part 2 - data plotting</h2>
+<p><br></p>
+<ul>
+<li>once your data have been tidied up, plotting works like a charm</li>
+<li>use ggplot2 and a tibble as input</li>
+<li>ggplot2 is part of tidyverse and loads when you load tidyverse</li>
+<li>very versatile and extendable data visualisation package</li>
+<li>as input, you need a tibble (or a data.frame)</li>
+<li>supply data, define aesthetic mapping, add layers, define axes, plot theme etc.</li>
+<li>use the same theme (font size, line width etc.) across all figures in a project/paper/thesis</li>
+<li>statistical tests</li>
+<li>saving plots and source data</li>
+</ul>
+
+<img data-src="images/ggplot2-2177292224.png" class="r-stretch"></section>
+<section id="aesthetics-plot-types-and-themes" class="slide level2">
+<h2>Aesthetics, plot types and themes</h2>
+<ul>
+<li>need to define ‘aesthetics’, which variable goes to x, y axes, to colour, size, line thickness etc.</li>
+<li>need to select plot type (geom_… boxplot, line, points etc.)</li>
+<li>need to define ‘theme’ such as axis thickness, fonts, ticks, borders etc.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a>iris <span class="sc">%&gt;%</span>  </span>
+<span id="cb45-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sepal.Length, <span class="at">y =</span> Sepal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb45-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb45-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="resources-1" class="slide level2">
+<h2>Resources</h2>
+<p><br> https://ggplot2.tidyverse.org/</p>
+<p>https://r4ds.hadley.nz/</p>
+
+<img data-src="images/ggplot2-2177292224.png" class="r-stretch"></section>
+<section id="plot-data---jose" class="slide level2">
+<h2>Plot data - Jose</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a>plot_Jose1 <span class="ot">&lt;-</span> data_Jose <span class="sc">%&gt;%</span></span>
+<span id="cb46-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> genotype, <span class="at">y =</span> length, <span class="at">fill =</span> <span class="fu">factor</span>(Treatment, <span class="at">level=</span><span class="fu">c</span>(<span class="st">'Control'</span>, <span class="st">'ABA'</span>, <span class="st">'Sulfate'</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href=""></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D55E00"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#cccccc"</span>)) <span class="sc">+</span></span>
+<span id="cb46-6"><a href=""></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Treatment"</span>)) </span>
+<span id="cb46-7"><a href=""></a></span>
+<span id="cb46-8"><a href=""></a>plot_Jose1  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
-<span id="cb37-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ct_value)) <span class="sc">+</span></span>
-<span id="cb37-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb47-2"><a href=""></a>plot_Jose2 <span class="ot">&lt;-</span> data_Jose <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> genotype, <span class="at">y =</span> length, <span class="at">fill =</span> <span class="fu">factor</span>(Treatment, <span class="at">level=</span><span class="fu">c</span>(<span class="st">'Control'</span>, <span class="st">'ABA'</span>, <span class="st">'Sulfate'</span>)), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb47-4"><a href=""></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb47-5"><a href=""></a>  <span class="fu">geom_point</span>( <span class="at">position=</span><span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.3</span>, <span class="at">dodge.width =</span> <span class="fl">0.9</span>), <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb47-6"><a href=""></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#D55E00"</span>, <span class="st">"#E69F00"</span>, <span class="st">"#aaaaaa"</span>, <span class="st">"#dddddd"</span>)) <span class="sc">+</span></span>
+<span id="cb47-7"><a href=""></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">title =</span> <span class="st">"Treatment"</span>)) </span>
+<span id="cb47-8"><a href=""></a>plot_Jose2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-14-2.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="a-note-on-languages" class="slide level2">
+<h2>A note on languages</h2>
+<ul>
+<li>you can also use python, bash etc in code blocks</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-2"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb48-3"><a href=""></a></span>
+<span id="cb48-4"><a href=""></a>r <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="dv">2</span>, <span class="fl">0.01</span>)</span>
+<span id="cb48-5"><a href=""></a>theta <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> np.pi <span class="op">*</span> r</span>
+<span id="cb48-6"><a href=""></a>fig, ax <span class="op">=</span> plt.subplots(</span>
+<span id="cb48-7"><a href=""></a>  subplot_kw <span class="op">=</span> {<span class="st">'projection'</span>: <span class="st">'polar'</span>} </span>
+<span id="cb48-8"><a href=""></a>)</span>
+<span id="cb48-9"><a href=""></a>ax.plot(theta, r)</span>
+<span id="cb48-10"><a href=""></a>ax.set_rticks([<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">2</span>])</span>
+<span id="cb48-11"><a href=""></a>ax.grid(<span class="va">True</span>)</span>
+<span id="cb48-12"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/fig-polar-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">
+Figure&nbsp;1: A line plot on a polar axis
+</p></section>
+<section id="plot-data" class="slide level2">
+<h2>Plot data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> days, <span class="at">y =</span> dt_ct, <span class="at">fill =</span> gene )) <span class="sc">+</span></span>
+<span id="cb49-4"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-23-3.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ct_value)) <span class="sc">+</span></span>
+<span id="cb50-3"><a href=""></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-23-4.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -818,19 +1257,30 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 <section id="plot-data-1" class="slide level2">
 <h2>Plot data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a>plot_Ashwini_ct <span class="ot">&lt;-</span> data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
-<span id="cb38-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gene, <span class="at">y =</span> ct_value, <span class="at">fill =</span> gene )) <span class="sc">+</span></span>
-<span id="cb38-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
-<span id="cb38-5"><a href=""></a>plot_Ashwini_ct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>plot_Ashwini_ct <span class="ot">&lt;-</span> data_Ashwini_sel_M_SD <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a href=""></a>  <span class="fu">group_by</span>(gene) <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> gene, <span class="at">y =</span> ct_value, <span class="at">fill =</span> gene )) <span class="sc">+</span></span>
+<span id="cb51-4"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span>
+<span id="cb51-5"><a href=""></a>plot_Ashwini_ct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch"></section>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-24-1.png" width="960" class="r-stretch"></section>
+<section id="plot-the-synuclein-data" class="slide level2">
+<h2>Plot the Synuclein data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>plot_syn <span class="ot">&lt;-</span> tb_syn <span class="sc">%&gt;%</span></span>
+<span id="cb52-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Time, <span class="at">y =</span> fluorescence, <span class="at">color =</span> condition)) <span class="sc">+</span></span>
+<span id="cb52-3"><a href=""></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">'loess'</span>) <span class="sc">+</span></span>
+<span id="cb52-4"><a href=""></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb52-5"><a href=""></a>plot_syn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
 <section id="read-and-preview-data-3" class="slide level2">
 <h2>Read and preview data 3</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a>data_Anchel <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/240323 CIN Exp278 reporter assay - Anchel.xlsx"</span>)</span>
-<span id="cb39-2"><a href=""></a><span class="fu">head</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>data_Anchel <span class="ot">&lt;-</span> readxl<span class="sc">::</span><span class="fu">read_excel</span>(<span class="st">"../analysis/data/240323 CIN Exp278 reporter assay - Anchel.xlsx"</span>)</span>
+<span id="cb53-2"><a href=""></a><span class="fu">head</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 13
   Application: Tecan i-co…¹ ...2  ...3  ...4  Tecan i-control , 1.…² ...6   ...7
@@ -846,7 +1296,7 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 # ℹ 6 more variables: ...8 &lt;chr&gt;, ...9 &lt;chr&gt;, ...10 &lt;chr&gt;, ...11 &lt;dbl&gt;,
 #   ...12 &lt;dbl&gt;, ...13 &lt;dbl&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">glimpse</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">glimpse</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 111
 Columns: 13
@@ -864,7 +1314,7 @@ $ ...11                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,
 $ ...12                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
 $ ...13                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a><span class="fu">str</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a><span class="fu">str</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [111 × 13] (S3: tbl_df/tbl/data.frame)
  $ Application: Tecan i-control: chr [1:111] "Device: infinite M1000" "Firmware: V_2.09_04/2011_S3LCE (May  2 2011/09.25.56)" NA "Date:" ...
@@ -881,7 +1331,7 @@ $ ...13                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,
  $ ...12                       : num [1:111] NA NA NA NA NA NA NA NA NA NA ...
  $ ...13                       : num [1:111] NA NA NA NA NA NA NA NA NA NA ...</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">summary</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a><span class="fu">summary</span>(data_Anchel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Application: Tecan i-control     ...2               ...3          
  Length:111                   Length:111         Length:111        
@@ -921,9 +1371,9 @@ $ ...13                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,
 <section id="save-tidy-data-as-source-data-for-the-plotfigurepaper" class="slide level2">
 <h2>Save tidy data as source data for the plot/figure/paper</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href=""></a><span class="fu">write_csv2</span>(data_Ashwini_sel_M_SD, <span class="st">"../manuscript/source_data/FigureX_Ashwini_source_data.csv"</span>)</span>
-<span id="cb47-2"><a href=""></a><span class="co"># check</span></span>
-<span id="cb47-3"><a href=""></a><span class="fu">read_csv2</span>(<span class="st">"../manuscript/source_data/data_Ashwini_sel_M_SD.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">write_csv2</span>(data_Ashwini_sel_M_SD, <span class="st">"../manuscript/source_data/FigureX_Ashwini_source_data.csv"</span>)</span>
+<span id="cb61-2"><a href=""></a><span class="co"># check</span></span>
+<span id="cb61-3"><a href=""></a><span class="fu">read_csv2</span>(<span class="st">"../manuscript/source_data/data_Ashwini_sel_M_SD.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 105 × 1
    `gene,days,raw_data,ct_value,dt_ct,x2_dct,mean2dct,sd2dct`                   
@@ -947,60 +1397,60 @@ $ ...13                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
-<span id="cb49-2"><a href=""></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
+<span id="cb63-2"><a href=""></a>  <span class="fu">theme_dark</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-28-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
-<span id="cb50-2"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
+<span id="cb64-2"><a href=""></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-18-2.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-28-2.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
-<span id="cb51-2"><a href=""></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href=""></a>plot_Jose1 <span class="sc">+</span></span>
+<span id="cb65-2"><a href=""></a>  <span class="fu">theme_linedraw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-18-3.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-28-3.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
-<span id="cb52-2"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
+<span id="cb66-2"><a href=""></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
-<span id="cb53-2"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
+<span id="cb67-2"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-19-2.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-29-2.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
-<span id="cb54-2"><a href=""></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href=""></a>plot_Jose2 <span class="sc">+</span></span>
+<span id="cb68-2"><a href=""></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-19-3.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-29-3.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1014,7 +1464,7 @@ $ ...13                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,
 <li>Themes are a powerful way to customize the non-data components of your plots: i.e.&nbsp;titles, labels, fonts, background, gridlines, and legends.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href=""></a><span class="fu">args</span>(theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href=""></a><span class="fu">args</span>(theme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>function (..., line, rect, text, title, aspect.ratio, axis.title, 
     axis.title.x, axis.title.x.top, axis.title.x.bottom, axis.title.y, 
@@ -1063,42 +1513,53 @@ NULL</code></pre>
 <section id="format-plots-with-a-common-custom-theme-1" class="slide level2">
 <h2>Format plots with a common custom theme()</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href=""></a>theme_plots <span class="ot">&lt;-</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb57-2"><a href=""></a>  <span class="fu">theme</span>(</span>
-<span id="cb57-3"><a href=""></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb57-4"><a href=""></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb57-5"><a href=""></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb57-6"><a href=""></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
-<span id="cb57-7"><a href=""></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb57-8"><a href=""></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">7</span>, <span class="st">"mm"</span>)</span>
-<span id="cb57-9"><a href=""></a>  )</span>
-<span id="cb57-10"><a href=""></a>plot_Ashwini_ct <span class="ot">&lt;-</span> plot_Ashwini_ct <span class="sc">+</span></span>
-<span id="cb57-11"><a href=""></a>  theme_plots</span>
-<span id="cb57-12"><a href=""></a>plot_Ashwini_ct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href=""></a>theme_plots <span class="ot">&lt;-</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb71-2"><a href=""></a>  <span class="fu">theme</span>(</span>
+<span id="cb71-3"><a href=""></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb71-4"><a href=""></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb71-5"><a href=""></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb71-6"><a href=""></a>    <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb71-7"><a href=""></a>    <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb71-8"><a href=""></a>    <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">7</span>, <span class="st">"mm"</span>)</span>
+<span id="cb71-9"><a href=""></a>  )</span>
+<span id="cb71-10"><a href=""></a></span>
+<span id="cb71-11"><a href=""></a>plot_Ashwini_ct <span class="ot">&lt;-</span> plot_Ashwini_ct <span class="sc">+</span></span>
+<span id="cb71-12"><a href=""></a>  theme_plots</span>
+<span id="cb71-13"><a href=""></a>plot_Ashwini_ct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href=""></a>plot_Jose1 <span class="ot">&lt;-</span> plot_Jose2 <span class="sc">+</span></span>
-<span id="cb58-2"><a href=""></a>  theme_plots</span>
-<span id="cb58-3"><a href=""></a>plot_Jose1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href=""></a>plot_Jose1 <span class="ot">&lt;-</span> plot_Jose1 <span class="sc">+</span></span>
+<span id="cb72-2"><a href=""></a>  theme_plots</span>
+<span id="cb72-3"><a href=""></a>plot_Jose1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-21-2.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-31-2.png" width="960"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href=""></a>plot_Jose2 <span class="ot">&lt;-</span> plot_Jose2 <span class="sc">+</span></span>
-<span id="cb59-2"><a href=""></a>  theme_plots</span>
-<span id="cb59-3"><a href=""></a>plot_Jose2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href=""></a>plot_Jose2 <span class="ot">&lt;-</span> plot_Jose2 <span class="sc">+</span></span>
+<span id="cb73-2"><a href=""></a>  theme_plots</span>
+<span id="cb73-3"><a href=""></a>plot_Jose2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-21-3.png" width="960"></p>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-31-3.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href=""></a>plot_syn <span class="ot">&lt;-</span> plot_syn <span class="sc">+</span></span>
+<span id="cb74-2"><a href=""></a>  theme_plots</span>
+<span id="cb74-3"><a href=""></a>plot_syn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-31-4.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1107,74 +1568,243 @@ NULL</code></pre>
 <section id="optional---save-plots" class="slide level2">
 <h2>Optional - save plots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href=""></a><span class="fu">ggsave</span>( <span class="st">"../analysis/pictures/plot_Jose1a.png"</span>,</span>
-<span id="cb60-2"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb60-3"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), plot_Jose1,</span>
-<span id="cb60-4"><a href=""></a>  <span class="at">width =</span> <span class="dv">1400</span>, <span class="at">height =</span> <span class="dv">1000</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
-<span id="cb60-5"><a href=""></a>)</span>
-<span id="cb60-6"><a href=""></a></span>
-<span id="cb60-7"><a href=""></a><span class="co"># save in a different size</span></span>
-<span id="cb60-8"><a href=""></a><span class="fu">ggsave</span>( <span class="st">"../analysis/pictures/plot_Jose1b.png"</span>,</span>
-<span id="cb60-9"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb60-10"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), plot_Jose1,</span>
-<span id="cb60-11"><a href=""></a>  <span class="at">width =</span> <span class="dv">1600</span>, <span class="at">height =</span> <span class="dv">800</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
-<span id="cb60-12"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href=""></a><span class="fu">ggsave</span>( <span class="st">"../analysis/pictures/plot_Jose1a.png"</span>,</span>
+<span id="cb75-2"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb75-3"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), plot_Jose1,</span>
+<span id="cb75-4"><a href=""></a>  <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">height =</span> <span class="dv">1400</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb75-5"><a href=""></a>)</span>
+<span id="cb75-6"><a href=""></a></span>
+<span id="cb75-7"><a href=""></a><span class="co"># save in a different size</span></span>
+<span id="cb75-8"><a href=""></a><span class="fu">ggsave</span>( <span class="st">"../analysis/pictures/plot_Jose1b.png"</span>,</span>
+<span id="cb75-9"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb75-10"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), plot_Jose2,</span>
+<span id="cb75-11"><a href=""></a>  <span class="at">width =</span> <span class="dv">2400</span>, <span class="at">height =</span> <span class="dv">2000</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb75-12"><a href=""></a>)</span>
+<span id="cb75-13"><a href=""></a></span>
+<span id="cb75-14"><a href=""></a></span>
+<span id="cb75-15"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb75-16"><a href=""></a>  <span class="st">"../analysis/pictures/synuclein_plot.png"</span>, plot_syn, </span>
+<span id="cb75-17"><a href=""></a>  <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb75-18"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="assemble-figure-with-cowplot-and-patchwork" class="slide level2">
 <h2>Assemble figure with cowplot and patchwork</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href=""></a><span class="fu">library</span>(png)</span>
-<span id="cb61-2"><a href=""></a><span class="fu">library</span>(cowplot)</span>
-<span id="cb61-3"><a href=""></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb61-4"><a href=""></a></span>
-<span id="cb61-5"><a href=""></a>img1 <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/plot_Jose1a.png"</span>)</span>
-<span id="cb61-6"><a href=""></a>img2 <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/plot_Jose1b.png"</span>)</span>
-<span id="cb61-7"><a href=""></a></span>
-<span id="cb61-8"><a href=""></a>panel_JoseA <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(img1)</span>
-<span id="cb61-9"><a href=""></a>panel_JoseB <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(img2)</span>
-<span id="cb61-10"><a href=""></a></span>
-<span id="cb61-11"><a href=""></a><span class="co">#define layout with textual representation</span></span>
-<span id="cb61-12"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb61-13"><a href=""></a><span class="st">AB</span></span>
-<span id="cb61-14"><a href=""></a><span class="st">CD</span></span>
-<span id="cb61-15"><a href=""></a><span class="st">"</span></span>
-<span id="cb61-16"><a href=""></a></span>
-<span id="cb61-17"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
-<span id="cb61-18"><a href=""></a>Figure_Jose <span class="ot">&lt;-</span> panel_JoseA <span class="sc">+</span> panel_JoseB <span class="sc">+</span> plot_Jose1 <span class="sc">+</span> plot_Jose2 <span class="sc">+</span> </span>
-<span id="cb61-19"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb61-20"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
-<span id="cb61-21"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
-<span id="cb61-22"><a href=""></a></span>
-<span id="cb61-23"><a href=""></a><span class="co">#save figure as png and pdf</span></span>
-<span id="cb61-24"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"../manuscript/figures/Figure_Jose.png"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb61-25"><a href=""></a>       <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_Jose, <span class="at">width =</span> <span class="dv">4000</span>, <span class="at">height =</span> <span class="dv">1200</span>,</span>
-<span id="cb61-26"><a href=""></a>       <span class="at">bg =</span> <span class="st">"white"</span>)</span>
-<span id="cb61-27"><a href=""></a></span>
-<span id="cb61-28"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"../manuscript/figures/Figure_Jose.pdf"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb61-29"><a href=""></a>       <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_Jose, <span class="at">width =</span> <span class="dv">3000</span>, <span class="at">height =</span> <span class="dv">1600</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href=""></a>img1 <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/plot_Jose1a.png"</span>)</span>
+<span id="cb76-2"><a href=""></a>img2 <span class="ot">&lt;-</span> <span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/plot_Jose1b.png"</span>)</span>
+<span id="cb76-3"><a href=""></a></span>
+<span id="cb76-4"><a href=""></a>panel_JoseA <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(img1)</span>
+<span id="cb76-5"><a href=""></a>panel_JoseB <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(img2)</span>
+<span id="cb76-6"><a href=""></a></span>
+<span id="cb76-7"><a href=""></a><span class="co">#define layout with textual representation</span></span>
+<span id="cb76-8"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb76-9"><a href=""></a><span class="st">AB</span></span>
+<span id="cb76-10"><a href=""></a><span class="st">CD"</span></span>
+<span id="cb76-11"><a href=""></a></span>
+<span id="cb76-12"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb76-13"><a href=""></a>Figure_Jose <span class="ot">&lt;-</span> panel_JoseA <span class="sc">+</span> panel_JoseB <span class="sc">+</span> plot_Jose1 <span class="sc">+</span> plot_Jose2 <span class="sc">+</span></span>
+<span id="cb76-14"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb76-15"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb76-16"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb76-17"><a href=""></a></span>
+<span id="cb76-18"><a href=""></a><span class="co">#save figure as png and pdf</span></span>
+<span id="cb76-19"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"../manuscript/figures/Figure_Jose.png"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb76-20"><a href=""></a>       <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_Jose, <span class="at">width =</span> <span class="dv">4000</span>, <span class="at">height =</span> <span class="dv">2000</span>,</span>
+<span id="cb76-21"><a href=""></a>       <span class="at">bg =</span> <span class="st">"white"</span>)</span>
+<span id="cb76-22"><a href=""></a></span>
+<span id="cb76-23"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"../manuscript/figures/Figure_Jose.pdf"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb76-24"><a href=""></a>       <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_Jose, <span class="at">width =</span> <span class="dv">3000</span>, <span class="at">height =</span> <span class="dv">1600</span>)</span>
+<span id="cb76-25"><a href=""></a></span>
+<span id="cb76-26"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_Jose.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-33-1.png" width="2000" class="r-stretch"></section>
+<section id="annotating-a-ggplot-object" class="slide level2">
+<h2>Annotating a ggplot object</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href=""></a>plot_syn_ann <span class="ot">&lt;-</span> plot_syn <span class="sc">+</span></span>
+<span id="cb77-2"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"segment"</span>, <span class="at">x =</span> <span class="dv">20</span>, <span class="at">xend =</span> <span class="dv">50</span>, <span class="at">y =</span> <span class="dv">1</span>, <span class="at">yend =</span> <span class="dv">1</span>, <span class="at">linewidth =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb77-3"><a href=""></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">34</span>, <span class="at">y =</span> <span class="dv">300</span>, <span class="at">label =</span> <span class="st">"30 sec"</span>, <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb77-4"><a href=""></a>plot_syn_ann</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch"></section>
+<section id="annotating-an-image" class="slide level2">
+<h2>Annotating an image</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href=""></a><span class="co">#read images</span></span>
+<span id="cb78-2"><a href=""></a>img_INNOS <span class="ot">&lt;-</span> magick<span class="sc">::</span><span class="fu">image_read</span>(<span class="st">"../analysis/pictures/INNOS_synapses.png"</span>)</span>
+<span id="cb78-3"><a href=""></a></span>
+<span id="cb78-4"><a href=""></a><span class="co">#define arrow endpoints </span></span>
+<span id="cb78-5"><a href=""></a>arrow <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fl">0.95</span>, <span class="at">x2 =</span> <span class="fl">0.95</span>, <span class="at">y1 =</span> <span class="fl">0.8</span>, <span class="at">y2 =</span> <span class="fl">0.9</span>)</span>
+<span id="cb78-6"><a href=""></a></span>
+<span id="cb78-7"><a href=""></a><span class="co">#add text labels</span></span>
+<span id="cb78-8"><a href=""></a>panel_INNOS <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> </span>
+<span id="cb78-9"><a href=""></a>  <span class="fu">draw_image</span>(img_INNOS) <span class="sc">+</span></span>
+<span id="cb78-10"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"INNOS"</span>, <span class="at">x =</span> <span class="fl">0.3</span>, <span class="at">y =</span> <span class="fl">0.99</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb78-11"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"NS plexus"</span>, <span class="at">x =</span> <span class="fl">0.485</span>, <span class="at">y =</span> <span class="fl">0.59</span>, <span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb78-12"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"outgoing"</span>, <span class="at">x =</span> <span class="fl">0.9</span>, <span class="at">y =</span> <span class="fl">0.45</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color=</span><span class="st">'#E69F00'</span>) <span class="sc">+</span></span>
+<span id="cb78-13"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"incoming"</span>, <span class="at">x =</span> <span class="fl">0.89</span>, <span class="at">y =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">color=</span><span class="st">'#0072B2'</span>) <span class="sc">+</span></span>
+<span id="cb78-14"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"D"</span>, <span class="at">x =</span> <span class="fl">0.95</span>, <span class="at">y =</span> <span class="fl">0.93</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb78-15"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"V"</span>, <span class="at">x =</span> <span class="fl">0.95</span>, <span class="at">y =</span> <span class="fl">0.77</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb78-16"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"*"</span>, <span class="at">x =</span> <span class="fl">0.5</span>, <span class="at">y =</span> <span class="fl">0.29</span>, <span class="at">color=</span><span class="st">'black'</span>,<span class="at">size =</span> <span class="dv">18</span>,<span class="at">fontface=</span><span class="st">'plain'</span>) <span class="sc">+</span></span>
+<span id="cb78-17"><a href=""></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> y1, <span class="at">xend =</span> x2, <span class="at">yend =</span> y2), <span class="at">data =</span> arrow, </span>
+<span id="cb78-18"><a href=""></a>               <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">ends =</span> <span class="st">"both"</span>, <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.1</span>,<span class="st">"cm"</span>)),</span>
+<span id="cb78-19"><a href=""></a>               <span class="at">lineend =</span> <span class="st">"butt"</span>,</span>
+<span id="cb78-20"><a href=""></a>               <span class="at">linejoin =</span> <span class="st">"mitre"</span>,</span>
+<span id="cb78-21"><a href=""></a>               <span class="at">arrow.fill =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.2</span>)</span>
+<span id="cb78-22"><a href=""></a></span>
+<span id="cb78-23"><a href=""></a><span class="co">#define layout</span></span>
+<span id="cb78-24"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"AB"</span></span>
+<span id="cb78-25"><a href=""></a></span>
+<span id="cb78-26"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb78-27"><a href=""></a>Figure_INNOS <span class="ot">&lt;-</span> plot_syn_ann <span class="sc">+</span> panel_INNOS <span class="sc">+</span></span>
+<span id="cb78-28"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb78-29"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb78-30"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb78-31"><a href=""></a></span>
+<span id="cb78-32"><a href=""></a><span class="co">#save figure as png</span></span>
+<span id="cb78-33"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb78-34"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_INNOS.png"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb78-35"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_INNOS, </span>
+<span id="cb78-36"><a href=""></a>  <span class="at">width =</span> <span class="dv">3000</span>, <span class="at">height =</span> <span class="dv">1000</span>,</span>
+<span id="cb78-37"><a href=""></a>  <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb78-38"><a href=""></a>  )</span>
+<span id="cb78-39"><a href=""></a></span>
+<span id="cb78-40"><a href=""></a><span class="co">#save figure as pdf</span></span>
+<span id="cb78-41"><a href=""></a><span class="fu">ggsave</span>(<span class="st">"../manuscript/figures/Figure_IHC.pdf"</span>, <span class="at">limitsize =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb78-42"><a href=""></a>       <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_INNOS, <span class="at">width =</span> <span class="dv">3000</span>, <span class="at">height =</span> <span class="dv">1000</span>)</span>
+<span id="cb78-43"><a href=""></a></span>
+<span id="cb78-44"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_IHC.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-35-1.png" width="1500" class="r-stretch"></section>
+<section id="adding-consistent-scale-bars" class="slide level2">
+<h2>Adding consistent scale bars</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href=""></a><span class="co">#read images and make annotated panel</span></span>
+<span id="cb79-2"><a href=""></a>panel_NOS2d_HCR <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/HCR-IHC_51_AP_NOS_actub_56um.png"</span>)) <span class="sc">+</span></span>
+<span id="cb79-3"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"in situ HCR"</span>, <span class="at">x =</span> <span class="fl">0.3</span>, <span class="at">y =</span> <span class="fl">0.99</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb79-4"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"NOS"</span>, <span class="at">x =</span> <span class="fl">0.12</span>, <span class="at">y =</span> <span class="fl">0.9</span>, <span class="at">color=</span><span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">fontface=</span><span class="st">"italic"</span>) <span class="sc">+</span></span>
+<span id="cb79-5"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"acTub"</span>, <span class="at">x =</span> <span class="fl">0.36</span>, <span class="at">y =</span> <span class="fl">0.9</span>, <span class="at">color=</span><span class="st">"green"</span>, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">fontface=</span><span class="st">"plain"</span>) <span class="sc">+</span></span>
+<span id="cb79-6"><a href=""></a>  <span class="fu">draw_line</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.46</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.08</span>, <span class="fl">0.08</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb79-7"><a href=""></a>  <span class="fu">draw_label</span>(<span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"20 "</span>, mu, <span class="st">" m"</span>)), <span class="at">x =</span> <span class="fl">0.28</span>, <span class="at">y =</span> <span class="fl">0.11</span>, <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="dv">8</span>)</span>
+<span id="cb79-8"><a href=""></a>  </span>
+<span id="cb79-9"><a href=""></a></span>
+<span id="cb79-10"><a href=""></a>panel_NIT_HCR <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/HCR_72_AP_NIT_94um.png"</span>)) <span class="sc">+</span></span>
+<span id="cb79-11"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"transgene + IHC"</span>, <span class="at">x =</span> <span class="fl">0.38</span>, <span class="at">y =</span> <span class="fl">0.99</span>, <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb79-12"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"NOSp::palmi-3xHA"</span>, <span class="at">x =</span> <span class="fl">0.34</span>, <span class="at">y =</span> <span class="fl">0.9</span>, <span class="at">color=</span><span class="st">"magenta"</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">fontface=</span><span class="st">"plain"</span>) <span class="sc">+</span></span>
+<span id="cb79-13"><a href=""></a>  <span class="fu">draw_label</span>(<span class="st">"acTub"</span>, <span class="at">x =</span> <span class="fl">0.8</span>, <span class="at">y =</span> <span class="fl">0.9</span>, <span class="at">color=</span><span class="st">"green"</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">fontface=</span><span class="st">"plain"</span>) <span class="sc">+</span></span>
+<span id="cb79-14"><a href=""></a>  <span class="fu">draw_line</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.31</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.08</span>, <span class="fl">0.08</span>), <span class="at">color =</span> <span class="st">"white"</span>, <span class="at">size =</span> <span class="fl">0.5</span>) </span>
+<span id="cb79-15"><a href=""></a></span>
+<span id="cb79-16"><a href=""></a><span class="co">#introduce gap in layout</span></span>
+<span id="cb79-17"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"A#B"</span></span>
+<span id="cb79-18"><a href=""></a></span>
+<span id="cb79-19"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb79-20"><a href=""></a>Figure_scalebars <span class="ot">&lt;-</span> panel_NOS2d_HCR <span class="sc">+</span> panel_NIT_HCR <span class="sc">+</span></span>
+<span id="cb79-21"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.03</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb79-22"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb79-23"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb79-24"><a href=""></a></span>
+<span id="cb79-25"><a href=""></a><span class="co">#save figure as png</span></span>
+<span id="cb79-26"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb79-27"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_scalebars.png"</span>,</span>
+<span id="cb79-28"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_scalebars, </span>
+<span id="cb79-29"><a href=""></a>  <span class="at">width =</span> <span class="dv">1700</span>, <span class="at">height =</span> <span class="dv">940</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb79-30"><a href=""></a>  )</span>
+<span id="cb79-31"><a href=""></a></span>
+<span id="cb79-32"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-36-1.png" width="850"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars_gap.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-36-2.png" width="850"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>you could add the scale bar directly on the image e.g., in ImageJ</li>
+<li>your scale bars may be misaligned and of varying thickness</li>
+<li>you can use cowplot::draw_line instead</li>
+<li>the x positions of the start and end of the line are defined as % of the panel width</li>
+<li>if you know the width of the image (e.g., can add it to file name), it is easy to calculate the size of the scale bar</li>
+</ul>
+</section>
+<section id="fine-tuning-figure-size-and-gaps" class="slide level2">
+<h2>Fine-tuning figure size and gaps</h2>
+<h3 id="excercises">Excercises</h3>
+<ul>
+<li>save the figure in different sizes</li>
+<li>introduce gap with # into layout, also need to define width of gap as say 0.05</li>
+<li>change position of scalebar and scalebar legend</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href=""></a><span class="co">#no gap in layout</span></span>
+<span id="cb81-2"><a href=""></a>layout1 <span class="ot">&lt;-</span> <span class="st">"AB"</span></span>
+<span id="cb81-3"><a href=""></a></span>
+<span id="cb81-4"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb81-5"><a href=""></a>Figure_scalebars <span class="ot">&lt;-</span> panel_NOS2d_HCR <span class="sc">+</span> panel_NIT_HCR <span class="sc">+</span></span>
+<span id="cb81-6"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout1, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb81-7"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb81-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb81-9"><a href=""></a></span>
+<span id="cb81-10"><a href=""></a><span class="co">#save figure as png</span></span>
+<span id="cb81-11"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb81-12"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_scalebars_no_gap.png"</span>, </span>
+<span id="cb81-13"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb81-14"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_scalebars, </span>
+<span id="cb81-15"><a href=""></a>  <span class="at">width =</span> <span class="dv">1700</span>, <span class="at">height =</span> <span class="dv">940</span>,</span>
+<span id="cb81-16"><a href=""></a>  <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb81-17"><a href=""></a>  )</span>
+<span id="cb81-18"><a href=""></a></span>
+<span id="cb81-19"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars_no_gap.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-37-1.png" width="850"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co">#introduce gap in layout</span></span>
+<span id="cb82-2"><a href=""></a>layout2 <span class="ot">&lt;-</span> <span class="st">"A#B"</span></span>
+<span id="cb82-3"><a href=""></a></span>
+<span id="cb82-4"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb82-5"><a href=""></a>Figure_scalebars <span class="ot">&lt;-</span> panel_NOS2d_HCR <span class="sc">+</span> panel_NIT_HCR <span class="sc">+</span></span>
+<span id="cb82-6"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout2, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.03</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb82-7"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb82-8"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb82-9"><a href=""></a></span>
+<span id="cb82-10"><a href=""></a><span class="co">#save figure as png</span></span>
+<span id="cb82-11"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb82-12"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_scalebars_gap.png"</span>, </span>
+<span id="cb82-13"><a href=""></a>  <span class="at">limitsize =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb82-14"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_scalebars, </span>
+<span id="cb82-15"><a href=""></a>  <span class="at">width =</span> <span class="dv">1700</span>, <span class="at">height =</span> <span class="dv">940</span>,</span>
+<span id="cb82-16"><a href=""></a>  <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb82-17"><a href=""></a>  )</span>
+<span id="cb82-18"><a href=""></a></span>
+<span id="cb82-19"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars_gap.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="RStudio_paper_writing_course_presentation_files/figure-revealjs/unnamed-chunk-37-2.png" width="850"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="quarto" class="slide level2">
 <h2>Quarto</h2>
 <p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
-</section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
-</section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
