@@ -417,7 +417,7 @@ Gáspár Jékely
 </ul>
 </div><div class="column" style="width:50%;">
 <h3 id="day-2">Day 2</h3>
-<p><br> - <strong>Part 3</strong>: Figure assembly cont., tables, manuscript writing, data and figure embedding</p>
+<p><br> - <strong>Part 3</strong>: Manuscript writing, tables, references, data and figure embedding</p>
 <ul>
 <li><p>12:30-13:30 lunch break</p></li>
 <li><p><strong>Part 4</strong>: GitHub, collaboration, sharing, version control</p></li>
@@ -536,16 +536,17 @@ Gáspár Jékely
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "custom.scss"                                             
  [2] "images"                                                  
- [3] "RStudio_paper_writing_course_presentation_day1_files"    
- [4] "RStudio_paper_writing_course_presentation_day1.html"     
- [5] "RStudio_paper_writing_course_presentation_day1.qmd"      
- [6] "RStudio_paper_writing_course_presentation_day1.rmarkdown"
- [7] "RStudio_paper_writing_course_presentation_day2_files"    
- [8] "RStudio_paper_writing_course_presentation_day2.html"     
- [9] "RStudio_paper_writing_course_presentation_day2.qmd"      
-[10] "RStudio_paper_writing_course_presentation_files"         
-[11] "RStudio_paper_writing_course_presentation.html"          
-[12] "sessionInfo.txt"                                         </code></pre>
+ [3] "references.bib"                                          
+ [4] "RStudio_paper_writing_course_presentation_day1_files"    
+ [5] "RStudio_paper_writing_course_presentation_day1.html"     
+ [6] "RStudio_paper_writing_course_presentation_day1.qmd"      
+ [7] "RStudio_paper_writing_course_presentation_day1.rmarkdown"
+ [8] "RStudio_paper_writing_course_presentation_day2_files"    
+ [9] "RStudio_paper_writing_course_presentation_day2.html"     
+[10] "RStudio_paper_writing_course_presentation_day2.qmd"      
+[11] "RStudio_paper_writing_course_presentation_files"         
+[12] "RStudio_paper_writing_course_presentation.html"          
+[13] "sessionInfo.txt"                                         </code></pre>
 </div>
 </div>
 </section>
@@ -598,8 +599,10 @@ Gáspár Jékely
 [3] "a-Syn-Data.csv"                                
 [4] "data - José - March 2024.xlsx"                 
 [5] "head_celltypes_syn_matrix.csv"                 
-[6] "Tom_filopodia_analyses.csv"                    
-[7] "Tom_filopodia_analyses.csv~"                   </code></pre>
+[6] "Key_resource_table.xls"                        
+[7] "Key_resource_table.xlsx"                       
+[8] "Tom_filopodia_analyses.csv"                    
+[9] "Tom_filopodia_analyses.csv~"                   </code></pre>
 </div>
 </div>
 <p><br></p>
@@ -653,11 +656,11 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] janitor_2.2.0      magick_2.8.3       rstudioapi_0.15.0  ggpubr_0.6.0      
- [5] RColorBrewer_1.1-3 patchwork_1.2.0    png_0.1-8          cowplot_1.1.3     
- [9] lubridate_1.9.3    forcats_1.0.0      stringr_1.5.1      dplyr_1.1.4       
-[13] purrr_1.0.2        readr_2.1.5        tidyr_1.3.1        tibble_3.2.1      
-[17] ggplot2_3.5.0      tidyverse_2.0.0   
+ [1] tinytable_0.0.5    janitor_2.2.0      magick_2.8.3       rstudioapi_0.15.0 
+ [5] ggpubr_0.6.0       RColorBrewer_1.1-3 patchwork_1.2.0    png_0.1-8         
+ [9] cowplot_1.1.3      lubridate_1.9.3    forcats_1.0.0      stringr_1.5.1     
+[13] dplyr_1.1.4        purrr_1.0.2        readr_2.1.5        tidyr_1.3.1       
+[17] tibble_3.2.1       ggplot2_3.5.0      tidyverse_2.0.0   
 
 loaded via a namespace (and not attached):
  [1] utf8_1.2.4       generics_0.1.3   rstatix_0.7.2    stringi_1.8.3   
@@ -1685,6 +1688,13 @@ NULL</code></pre>
 <img data-src="RStudio_paper_writing_course_presentation_day1_files/figure-revealjs/unnamed-chunk-35-1.png" width="1500" class="r-stretch"></section>
 <section id="adding-consistent-scale-bars" class="slide level2">
 <h2>Adding consistent scale bars</h2>
+<ul>
+<li>you could add the scale bar directly on the image e.g., in ImageJ, however..</li>
+<li>your scale bars may be misaligned and of varying thickness</li>
+<li>you can use cowplot::draw_line instead</li>
+<li>the x positions of the start and end of the line are defined as % of the panel width</li>
+<li>if you know the width of the image (e.g., can add it to file name), it is easy to calculate the size of the scale bar</li>
+</ul>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1729,8 +1739,7 @@ NULL</code></pre>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="co">#test</span></span>
-<span id="cb82-2"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_scalebars.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1739,13 +1748,6 @@ NULL</code></pre>
 </div>
 </div>
 </div>
-<ul>
-<li>you could add the scale bar directly on the image e.g., in ImageJ</li>
-<li>your scale bars may be misaligned and of varying thickness</li>
-<li>you can use cowplot::draw_line instead</li>
-<li>the x positions of the start and end of the line are defined as % of the panel width</li>
-<li>if you know the width of the image (e.g., can add it to file name), it is easy to calculate the size of the scale bar</li>
-</ul>
 </section>
 <section id="fine-tuning-figure-size-and-gaps" class="slide level2">
 <h2>Fine-tuning figure size and gaps</h2>
@@ -1810,10 +1812,48 @@ NULL</code></pre>
 </div>
 </div>
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <a href="https://quarto.org/docs/presentations/" class="uri">https://quarto.org/docs/presentations/</a>.</p>
-<div class="quarto-auto-generated-content">
+<section id="more-complex-figure-layouts" class="slide level2">
+<h2>More complex figure layouts</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href=""></a><span class="co">#read images and make annotated panel</span></span>
+<span id="cb85-2"><a href=""></a>panel_Platy <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/Platynereis_SEM_inverted_nolabel.png"</span>))</span>
+<span id="cb85-3"><a href=""></a>panel_NOS <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/HCR-IHC_51_AP_NOS_actub_56um.png"</span>))</span>
+<span id="cb85-4"><a href=""></a>panel_FVRI <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/FVRIa_rhoPhall_31h_200um.png"</span>))</span>
+<span id="cb85-5"><a href=""></a>panel_Jose <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/plot_Jose1b.png"</span>))</span>
+<span id="cb85-6"><a href=""></a>panel_INNOS <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/INNOS_synapses.png"</span>))</span>
+<span id="cb85-7"><a href=""></a>panel_NIT <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/IHC_55_AP_NITGC2_actub_61um.png"</span>))</span>
+<span id="cb85-8"><a href=""></a>panel_DAF <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/DAFFM.png"</span>))</span>
+<span id="cb85-9"><a href=""></a>panel_model <span class="ot">&lt;-</span> <span class="fu">ggdraw</span>() <span class="sc">+</span> <span class="fu">draw_image</span>(<span class="fu">readPNG</span>(<span class="st">"../analysis/pictures/Magnitude_model_cPRC.png"</span>))</span>
+<span id="cb85-10"><a href=""></a></span>
+<span id="cb85-11"><a href=""></a><span class="co">#introduce gap in layout</span></span>
+<span id="cb85-12"><a href=""></a>layout <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb85-13"><a href=""></a><span class="st">AAAABBBBCCCC</span></span>
+<span id="cb85-14"><a href=""></a><span class="st">AAAABBBBDDDD</span></span>
+<span id="cb85-15"><a href=""></a><span class="st">############</span></span>
+<span id="cb85-16"><a href=""></a><span class="st">EEEFFFGGGHHH</span></span>
+<span id="cb85-17"><a href=""></a><span class="st">EEEFFFGGGHHH</span></span>
+<span id="cb85-18"><a href=""></a><span class="st">"</span></span>
+<span id="cb85-19"><a href=""></a></span>
+<span id="cb85-20"><a href=""></a><span class="co">#assemble multipanel figure based on layout</span></span>
+<span id="cb85-21"><a href=""></a>Figure_complex <span class="ot">&lt;-</span> panel_Platy <span class="sc">+</span> panel_FVRI <span class="sc">+</span>  panel_NOS <span class="sc">+</span> </span>
+<span id="cb85-22"><a href=""></a>  panel_NIT <span class="sc">+</span></span>
+<span id="cb85-23"><a href=""></a>  panel_INNOS <span class="sc">+</span> panel_Jose <span class="sc">+</span> panel_DAF <span class="sc">+</span></span>
+<span id="cb85-24"><a href=""></a>  panel_model <span class="sc">+</span></span>
+<span id="cb85-25"><a href=""></a>  <span class="fu">plot_layout</span>(<span class="at">design =</span> layout, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.05</span>, <span class="dv">1</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb85-26"><a href=""></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">'A'</span>) <span class="sc">&amp;</span> </span>
+<span id="cb85-27"><a href=""></a>  <span class="fu">theme</span>(<span class="at">plot.tag =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">face=</span><span class="st">'plain'</span>))</span>
+<span id="cb85-28"><a href=""></a></span>
+<span id="cb85-29"><a href=""></a><span class="co">#save figure as png</span></span>
+<span id="cb85-30"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb85-31"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_complex.png"</span>,</span>
+<span id="cb85-32"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"px"</span>), Figure_complex, </span>
+<span id="cb85-33"><a href=""></a>  <span class="at">width =</span> <span class="dv">2600</span>, <span class="at">height =</span> <span class="dv">1700</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb85-34"><a href=""></a>  )</span>
+<span id="cb85-35"><a href=""></a></span>
+<span id="cb85-36"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_complex.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="RStudio_paper_writing_course_presentation_day1_files/figure-revealjs/unnamed-chunk-39-1.png" width="1300" class="r-stretch"><div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>

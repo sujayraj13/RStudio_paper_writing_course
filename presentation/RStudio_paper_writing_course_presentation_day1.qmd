@@ -28,7 +28,7 @@ scrollable: true
 :::{.column width=50%}
 ### Day 2
 <br>
-- **Part 3**: Figure assembly cont., tables, manuscript writing, data and figure embedding
+- **Part 3**: Manuscript writing, tables, references, data and figure embedding
 
 - 12:30-13:30 lunch break
 
@@ -306,6 +306,7 @@ vignette("tibble")
 ## Tidy data -- __Why should I care?__
 
 <br>
+
 - after reading your data, you should always try to convert them into a tibble
 - downstream analyses (plotting, mutating, sharing etc.) will be a lot easier
 - data coming from other software, collaborators etc. are often 'messy'
@@ -834,6 +835,46 @@ image_read("../manuscript/figures/Figure_scalebars_gap.png")
 
 ```
 
-## Quarto
+## More complex figure layouts
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+```{r}
+#| echo=TRUE, eval=TRUE
+
+#read images and make annotated panel
+panel_Platy <- ggdraw() + draw_image(readPNG("../analysis/pictures/Platynereis_SEM_inverted_nolabel.png"))
+panel_NOS <- ggdraw() + draw_image(readPNG("../analysis/pictures/HCR-IHC_51_AP_NOS_actub_56um.png"))
+panel_FVRI <- ggdraw() + draw_image(readPNG("../analysis/pictures/FVRIa_rhoPhall_31h_200um.png"))
+panel_Jose <- ggdraw() + draw_image(readPNG("../analysis/pictures/plot_Jose1b.png"))
+panel_INNOS <- ggdraw() + draw_image(readPNG("../analysis/pictures/INNOS_synapses.png"))
+panel_NIT <- ggdraw() + draw_image(readPNG("../analysis/pictures/IHC_55_AP_NITGC2_actub_61um.png"))
+panel_DAF <- ggdraw() + draw_image(readPNG("../analysis/pictures/DAFFM.png"))
+panel_model <- ggdraw() + draw_image(readPNG("../analysis/pictures/Magnitude_model_cPRC.png"))
+
+#introduce gap in layout
+layout <- "
+AAAABBBBCCCC
+AAAABBBBDDDD
+############
+EEEFFFGGGHHH
+EEEFFFGGGHHH
+"
+
+#assemble multipanel figure based on layout
+Figure_complex <- panel_Platy + panel_FVRI +  panel_NOS + 
+  panel_NIT +
+  panel_INNOS + panel_Jose + panel_DAF +
+  panel_model +
+  plot_layout(design = layout, heights = c(1, 1, 0.05, 1, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
+#save figure as png
+ggsave(
+  "../manuscript/figures/Figure_complex.png",
+  units = c("px"), Figure_complex, 
+  width = 2600, height = 1700, bg = "white"
+  )
+
+image_read("../manuscript/figures/Figure_complex.png")
+```
+
