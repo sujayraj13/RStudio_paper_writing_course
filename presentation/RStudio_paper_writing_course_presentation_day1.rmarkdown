@@ -13,6 +13,7 @@ format:
 scrollable: true
 ---
 
+
 ## Course program
 
 ::: columns
@@ -35,9 +36,11 @@ scrollable: true
 - **Part 4**: GitHub, collaboration, sharing, version control
 :::
 :::
+
 ```{r eval=TRUE, echo=FALSE}
 source("../analysis/scripts/packages_and_functions.R")
 ```
+
 
 ## Resources
 
@@ -141,10 +144,12 @@ https://rstudio-education.github.io/tidyverse-cookbook/
 ## Rule nr. 1 -- relative working directories
 
 <br>
+
 ```{r, eval=TRUE, echo=TRUE}
 #| code-fold: false
 getwd()
 ```
+
 
 
 -   Never use absolute paths in your scripts, because they hinder sharing: no one else will have exactly the same directory configuration as you.
@@ -158,10 +163,12 @@ getwd()
 -   Whenever you refer to a file with a relative path it will look for it in your wd.
 
 
+
 ```{r, eval=TRUE, echo=TRUE}
 #| code-fold: false
 list.files()
 ```
+
 
 
 ## Project management
@@ -187,18 +194,22 @@ list.files()
 ## Installing packages
 
 * install the **tidyverse** package
+
 ```{r, eval=FALSE, echo=TRUE}
 #| code-fold: false
 install.packages("tidyverse")
 ```
 
 
+
 - then load the package
+
 ```{r, eval=FALSE, echo=TRUE}
 #| code-fold: false
 library(tidyverse)
 library(png)
 ```
+
 
 ## You can source packages and functions from one file
 
@@ -206,29 +217,36 @@ library(png)
 
 * source several packages and functions, listed in one file consistently across scripts
 
+
 ```{r eval=FALSE, tidy=FALSE, fig.height=5}
 #| code-fold: false
 source("../analysis/scripts/packages_and_functions.R")
 ```
+
 
 ## General good practice -- avoid spaces in file names 
 
 :::{.incremental}
 
 <br>
+
 ```{r, eval=TRUE, echo=TRUE}
 #| code-fold: false
 list.files("../analysis/data")
 ```
 
+
 <br>
+
 ```{r, eval=TRUE, echo=TRUE}
 #| code-fold: false
 readxl::read_excel("../analysis/data/data - José - March 2024.xlsx")
 ```
+
 :::
 
 ## Save and share your computer environment and packages
+
 
 ```{r echo=TRUE, eval=TRUE}
 #save session info and Rstudio version info for reproducibility
@@ -237,7 +255,9 @@ writeLines(capture.output(sessionInfo()), "sessionInfo.txt")
 ```
 
 
+
 ## Read and preview data 1
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -249,6 +269,7 @@ summary(data_Jose)
 ```
 
 
+
 ## Your workspace in R
 
 - Recreate, rather than save workspace, save your coda and data, not workspace <br>
@@ -256,6 +277,7 @@ summary(data_Jose)
 <img src=images/rstudio-workspace.png width=60%>
 
 ## Read and preview data 2
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -265,6 +287,7 @@ glimpse(data_Ashwini)
 str(data_Ashwini)
 summary(data_Ashwini)
 ```
+
 
 ## Tidy data - definitions
 
@@ -292,18 +315,22 @@ __There are three interrelated rules which make a dataset tidy:__
 
 ## Tidy data - an example tidy dataset
 
+
 ```{r, echo=TRUE}
 knitr::kable(head(iris), format = 'html')
 ```
 
 
+
 ## Tibbles = tabular data in tidy format
+
 
 ```{r}
 #| eval=FALSE, echo=TRUE
 vignette("tibble")
 
 ```
+
 
 - Tibbles are a modern take on data frames. 
 - They keep the features that have stood the test of time, and drop the features that used to be convenient but are now frustrating.
@@ -322,6 +349,7 @@ vignette("tibble")
 
 ## Let's try to fix a messy dataset...
 
+
 ```{r}
 #| eval=TRUE, echo=TRUE
 Gene <- c(rep("Nanog", 15), rep("oct4", 15), rep("sox2", 15),
@@ -334,7 +362,9 @@ head(data_Ashwini)
 ```
 
 
+
 ## Select only relevant columns and clean up names...
+
 
 ```{r}
 
@@ -345,7 +375,9 @@ data_Ashwini_sel <- data_Ashwini %>%
 data_Ashwini_sel
 ```
 
+
 ## Add mean and SD columns with group_by() and mutate()
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -357,7 +389,9 @@ data_Ashwini_sel_M_SD
 ```
 
 
+
 ## Change data type...
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -366,10 +400,12 @@ data_Ashwini_sel_M_SD <- data_Ashwini_sel_M_SD %>%
 data_Ashwini_sel_M_SD
 ```
 
+
 ## Pivoting 
 
 - Tidying messy data is hard and requires parctice
 - Read more here: https://r4ds.had.co.nz/tibbles.html
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -387,6 +423,7 @@ tb_syn <- data_Syn_clean |>
                values_to = "fluorescence")
  tb_syn
 ```
+
 
 ## Part 2 - data plotting
 
@@ -410,6 +447,7 @@ tb_syn <- data_Syn_clean |>
 * need to select plot type (geom_...  boxplot, line, points etc.)
 * need to define 'theme' such as axis thickness, fonts, ticks, borders etc.
 
+
 ```{r eval = TRUE, echo = TRUE, fig.height = 4}
 
 iris %>%  
@@ -418,6 +456,7 @@ iris %>%
   theme_minimal()
 
 ```
+
 
 ## Resources
 
@@ -432,6 +471,7 @@ https://rstudio.github.io/cheatsheets/data-visualization.pdf
 ![](images/ggplot2-2177292224.png)
 
 ## Plot data - Jose
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -460,9 +500,11 @@ plot_Jose2 <- data_Jose %>%
 plot_Jose2
 ```
 
+
 ## A note on languages
 
 - you can also use python, bash etc in code blocks
+
 
 ```{python, echo=TRUE}
 #| label: fig-polar
@@ -482,7 +524,9 @@ ax.grid(True)
 plt.show()
 ```
 
+
 ## Plot data
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -496,7 +540,9 @@ data_Ashwini_sel_M_SD %>%
   geom_histogram()
 
 ```
+
 ## Plot data
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -508,7 +554,9 @@ plot_Ashwini_ct
 
 ```
 
+
 ## Plot the Synuclein data
+
 
 ```{r eval = TRUE, echo = TRUE, fig.height = 5}
 plot_syn <- tb_syn %>%
@@ -520,7 +568,9 @@ plot_syn
 ```
 
 
+
 ## Read and preview data 3
+
 
 ```{r}
 #| eval=TRUE, echo=TRUE
@@ -532,7 +582,9 @@ summary(data_Anchel)
 ```
 
 
+
 ## Save tidy data as source data for the plot/figure/paper
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -542,10 +594,12 @@ read_csv2("../manuscript/source_data/data_Ashwini_sel_M_SD.csv")
 ```
 
 
+
 ## Format plots with predefined complete ggplot2 themes
 
 ::: columns
 ::: {.column width=50%}
+
 ```{r}
 #| echo=TRUE, eval=TRUE
 plot_Jose1 +
@@ -555,8 +609,10 @@ plot_Jose1 +
 plot_Jose1 +
   theme_linedraw()
 ```
+
 :::
 ::: {.column width=50%}
+
 ```{r}
 #| echo=TRUE, eval=TRUE
 plot_Jose2 +
@@ -566,6 +622,7 @@ plot_Jose2 +
 plot_Jose2 +
   theme_light()
 ```
+
 :::
 :::
 
@@ -576,13 +633,16 @@ plot_Jose2 +
 
 
 
+
 ```{r}
 #| echo=TRUE, eval=TRUE
 args(theme)
 ```
 
 
+
 ## Format plots with a common custom theme()
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -613,7 +673,9 @@ plot_syn <- plot_syn +
 plot_syn
 ```
 
+
 ## Optional - save plots
+
 
 
 ```{r}
@@ -639,7 +701,9 @@ ggsave(
 
 ```
 
+
 ## Assemble figure with cowplot and patchwork
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -673,7 +737,9 @@ image_read("../manuscript/figures/Figure_Jose.png")
 ```
 
 
+
 ## Annotating a ggplot object
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -684,7 +750,9 @@ plot_syn_ann <- plot_syn +
 plot_syn_ann
 ```
 
+
 ## Annotating an image
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -740,6 +808,7 @@ image_read("../manuscript/figures/Figure_IHC.png")
 
 
 
+
 ## Adding consistent scale bars
 
 
@@ -748,6 +817,7 @@ image_read("../manuscript/figures/Figure_IHC.png")
 - you can use cowplot::draw_line instead
 - the x positions of the start and end of the line are defined as % of the panel width
 - if you know the width of the image (e.g., can add it to file name), it is easy to calculate the size of the scale bar
+
 
 ```{r, eval=TRUE, echo=TRUE}
 #| code-fold: true
@@ -792,6 +862,7 @@ image_read("../manuscript/figures/Figure_scalebars.png")
 ```
 
 
+
 ## Fine-tuning figure size and gaps
 
 ### Excercises
@@ -799,6 +870,7 @@ image_read("../manuscript/figures/Figure_scalebars.png")
 - save the figure in different sizes 
 - introduce gap with # into layout, also need to define width of gap as say 0.05
 - change position of scalebar and scalebar legend
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -845,7 +917,9 @@ image_read("../manuscript/figures/Figure_scalebars_gap.png")
 
 ```
 
+
 ## More complex figure layouts
+
 
 ```{r}
 #| echo=TRUE, eval=TRUE
@@ -889,6 +963,7 @@ image_read("../manuscript/figures/Figure_complex.png")
 ```
 
 
+
 ## Vector graphics and drawings
 
 <br>
@@ -898,6 +973,7 @@ image_read("../manuscript/figures/Figure_complex.png")
 - export as image, import into R workflow
 
 ## Image saved with a defined resolution (dpi)
+
 
 
 ```{r}
