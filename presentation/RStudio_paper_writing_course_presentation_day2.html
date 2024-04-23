@@ -725,7 +725,6 @@ Gáspár Jékely
 <li>can share repositories privately with collaborators</li>
 <li>integrates well with Rstudio</li>
 <li>uses git protocol that is open source and also used by other code-hosting sites</li>
-<li>we should have a COS/UniHD git site…</li>
 </ul>
 </section>
 <section id="the-workflow" class="slide level2">
@@ -747,7 +746,7 @@ Gáspár Jékely
 <h2>Collaborations - sharing and commenting</h2>
 <p><br></p>
 <ul>
-<li>Adding comments directly to the Quarto file with “<!--# my comment -->” (these will not be knitted to the output)</li>
+<li>Adding comments directly to the Quarto file with &lt;!–# my comment –&gt; (these will not be knitted to the output)</li>
 <li>share as .docx and ask collaborators to use track changes (then why did we take this course…)</li>
 <li>collaborate on the same GitHub repository, use branches and pull requests (only makes sense if the collaborators are very involved)</li>
 <li>in principle you could use an Rproject for data, code and figures, and write text+refs on Gdocs+Paperpile or Overleaf+bib</li>
@@ -771,6 +770,41 @@ Gáspár Jékely
 </div>
 </div>
 </div>
+</section>
+<section id="publication---github-and-zenodo-integration" class="slide level2">
+<h2>Publication - GitHub and Zenodo integration</h2>
+<p><br></p>
+<ul>
+<li>GitHub is not a publishing platform</li>
+<li>The owner could delete or make private the entire repo one day after publishing</li>
+<li>To stably publish your code and source data repository with a DOI ( globally unique and persistent identifier), you can use Zenodo</li>
+<li>Launched in 2013 by CERN</li>
+<li>Upload and link your GitHub repo to Zenodo</li>
+</ul>
+<p><img data-src="images/zenodo-gradient-1000.png" class="absolute" style="top: 260px; left: 550px; height: 100px; "></p>
+</section>
+<section id="citation" class="slide level2">
+<h2>Citation</h2>
+<p><br></p>
+<ul>
+<li>add/update a citation (CITATION.cff) file to your repo</li>
+<li>include the Zenodo DOI</li>
+<li>also cite your Zenodo repository in your manuscript</li>
+<li>see <a href="https://zenodo.org/records/10978753">example</a></li>
+<li>Make releases of your GitHub repo (e.g.&nbsp;initial submission, version of record), see <a href="https://github.com/JekelyLab/Thiel_Yanez_Nematostella/tree/v3.0.0">example</a></li>
+<li>The releases will be shown on Zenodo and are citeable</li>
+</ul>
+</section>
+<section id="add-readme-file-to-your-repository" class="slide level2">
+<h2>Add README file to your repository</h2>
+<p><br></p>
+<ul>
+<li>open the README file (README.Rmd)</li>
+<li>README.md is generated from README.Rmd. Please edit that file</li>
+<li>modify the file according to your project</li>
+<li>add citation of the Zenodo repo with DOI</li>
+<li>add License, Acknowledgements etc.</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

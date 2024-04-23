@@ -182,7 +182,7 @@ tt(
 -   can share repositories privately with collaborators
 -   integrates well with Rstudio
 -   uses git protocol that is open source and also used by other code-hosting sites
--   we should have a COS/UniHD git site...
+
 
 ## The workflow
 
@@ -201,7 +201,7 @@ tt(
 
 <br>
 
--   Adding comments directly to the Quarto file with "<!--# my comment -->" (these will not be knitted to the output)
+-   Adding comments directly to the Quarto file with \<!--# my comment --> (these will not be knitted to the output)
 - share as .docx and ask collaborators to use track changes (then why did we take this course...)
 - collaborate on the same GitHub repository, use branches and pull requests (only makes sense if the collaborators are very involved)
 - in principle you could use an Rproject for data, code and figures, and write text+refs on Gdocs+Paperpile or Overleaf+bib
@@ -213,5 +213,39 @@ tt(
 ::: callout-warning
 - if you re-render the html and overwrite the shared file, the comments will be gone
 :::
+
+## Publication - GitHub and Zenodo integration
+
+<br>
+
+- GitHub is not a publishing platform 
+- The owner could delete or make private the entire repo one day after publishing
+- To stably publish your code and source data repository with a DOI ( globally unique and persistent identifier), you can use Zenodo
+- Launched in 2013 by CERN
+- Upload and link your GitHub repo to Zenodo
+
+![](images/zenodo-gradient-1000.png){.absolute top="260" left="550" height="100"}
+
+
+## Citation
+
+<br>
+
+- add/update a citation (CITATION.cff) file to your repo
+- include the Zenodo DOI
+- also cite your Zenodo repository in your manuscript
+- see [example](https://zenodo.org/records/10978753)
+- Make releases of your GitHub repo (e.g. initial submission, version of record), see [example](https://github.com/JekelyLab/Thiel_Yanez_Nematostella/tree/v3.0.0)
+- The releases will be shown on Zenodo and are citeable
+
+## Add README file to your repository
+
+<br>
+
+- open the README file (README.Rmd)
+- README.md is generated from README.Rmd. Please edit that file
+- modify the file according to your project
+- add citation of the Zenodo repo with DOI
+- add License, Acknowledgements etc.
 
 

@@ -14,7 +14,7 @@ locale:
  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
 [11] LC_MEASUREMENT=en_GB.UTF-8 LC_IDENTIFICATION=C       
 
-time zone: Europe/Berlin
+time zone: Europe/London
 tzcode source: system (glibc)
 
 attached base packages:

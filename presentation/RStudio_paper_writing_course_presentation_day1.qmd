@@ -877,4 +877,3 @@ ggsave(
 
 image_read("../manuscript/figures/Figure_complex.png")
 ```
-
