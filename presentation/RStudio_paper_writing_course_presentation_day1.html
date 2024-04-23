@@ -522,6 +522,7 @@ Gáspár Jékely
 <li>navigate to: https://github.com/JekelyLab/RStudio_paper_writing_course</li>
 <li>fork the repository to your GitHub</li>
 <li>go to RStudio -&gt; New Project -&gt; Git -&gt; your repo’s address</li>
+<li>open /analysis/scripts/Course_exercises.R</li>
 </ul>
 </section>
 <section id="rule-nr.-1-relative-working-directories" class="slide level2">
@@ -603,15 +604,16 @@ Gáspár Jékely
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">list.files</span>(<span class="st">"../analysis/data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "24_01_22qpcr_1 - ash pal.xlsx"                 
-[2] "240323 CIN Exp278 reporter assay - Anchel.xlsx"
-[3] "a-Syn-Data.csv"                                
-[4] "data - José - March 2024.xlsx"                 
-[5] "head_celltypes_syn_matrix.csv"                 
-[6] "Key_resource_table.xls"                        
-[7] "Key_resource_table.xlsx"                       
-[8] "Tom_filopodia_analyses.csv"                    
-[9] "Tom_filopodia_analyses.csv~"                   </code></pre>
+<pre><code> [1] "24_01_22qpcr_1 - ash pal.xls"                  
+ [2] "24_01_22qpcr_1 - ash pal.xlsx"                 
+ [3] "240323 CIN Exp278 reporter assay - Anchel.xlsx"
+ [4] "a-Syn-Data.csv"                                
+ [5] "data - José - March 2024.xlsx"                 
+ [6] "head_celltypes_syn_matrix.csv"                 
+ [7] "Key_resource_table.xls"                        
+ [8] "Key_resource_table.xlsx"                       
+ [9] "Tom_filopodia_analyses.csv"                    
+[10] "Tom_filopodia_analyses.csv~"                   </code></pre>
 </div>
 </div>
 <p><br></p>
@@ -1187,6 +1189,9 @@ $ ...23           &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, "SD", "1.749626236
 <h2>Resources</h2>
 <p><br> https://ggplot2.tidyverse.org/</p>
 <p>https://r4ds.hadley.nz/</p>
+<ul>
+<li>ggplot cheat sheet https://rstudio.github.io/cheatsheets/data-visualization.pdf</li>
+</ul>
 
 <img data-src="images/ggplot2-2177292224.png" class="r-stretch"></section>
 <section id="plot-data---jose" class="slide level2">
@@ -1869,7 +1874,26 @@ NULL</code></pre>
 <span id="cb85-36"><a href=""></a><span class="fu">image_read</span>(<span class="st">"../manuscript/figures/Figure_complex.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="RStudio_paper_writing_course_presentation_day1_files/figure-revealjs/unnamed-chunk-39-1.png" width="1300" class="r-stretch"><div class="quarto-auto-generated-content">
+<img data-src="RStudio_paper_writing_course_presentation_day1_files/figure-revealjs/unnamed-chunk-39-1.png" width="1300" class="r-stretch"></section>
+<section id="vector-graphics-and-drawings" class="slide level2">
+<h2>Vector graphics and drawings</h2>
+<p><br></p>
+<ul>
+<li>https://scidraw.io/ for high-quality CC-BY drawings</li>
+<li>Inkscape (free) or Illustrator (license) for vector graphics</li>
+<li>export as image, import into R workflow</li>
+</ul>
+</section>
+<section id="image-saved-with-a-defined-resolution-dpi" class="slide level2">
+<h2>Image saved with a defined resolution (dpi)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href=""></a><span class="fu">ggsave</span>(</span>
+<span id="cb86-2"><a href=""></a>  <span class="st">"../manuscript/figures/Figure_complex_300dpi.png"</span>,</span>
+<span id="cb86-3"><a href=""></a>  <span class="at">units =</span> <span class="fu">c</span>(<span class="st">"cm"</span>), Figure_complex, </span>
+<span id="cb86-4"><a href=""></a>  <span class="at">width =</span> <span class="dv">22</span>, <span class="at">height =</span> <span class="dv">13</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">bg =</span> <span class="st">"white"</span></span>
+<span id="cb86-5"><a href=""></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
