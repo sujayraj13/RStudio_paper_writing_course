@@ -78,7 +78,8 @@ Inserting Figures <!--# I don't agree here -->
 
 Test comment here. <!--# Hi -->
 
-You can add your figures into the rendered document. We saved the figures into /manuscript/figures or /manuscript/figure_supplements and can insert them from there. We use knitr::include_graphics for this. The title and legend can also be edited, as will as the width of the output figure. <!--# Test comment for git show -->
+You can add your figures into the rendered document. We saved the figures into /manuscript/figures or /manuscript/figure_supplements and can insert them from there. We use knitr::include_graphics for this. The title and legend can also be edited, as will as the width of the output figure. 
+<!--# Test comment for git show -->
 
 ```{r}
 #| echo: false
