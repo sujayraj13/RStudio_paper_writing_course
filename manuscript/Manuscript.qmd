@@ -49,7 +49,7 @@ You can add references either by referring to their id in the .bib file e.g., [@
 
 It is now a test to edit the text and see how the changes show up on GitHub.
 
-Test of git diff.
+Test of git show.
 
 In the visual editor mode, go to 'Insert' -\> \@ Citation
 
