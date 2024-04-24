@@ -49,6 +49,8 @@ You can add references either by referring to their id in the .bib file e.g., [@
 
 It is now a test to edit the text and see how the changes show up on GitHub.
 
+Test of git diff.
+
 In the visual editor mode, go to 'Insert' -\> \@ Citation
 
 You can select a Zotero library, PubMed, CrossRef etc. and insert the citations. [@Jacobs2023]
