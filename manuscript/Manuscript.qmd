@@ -47,6 +47,8 @@ source("../analysis/scripts/statistics_for_paper.R")
 
 You can add references either by referring to their id in the .bib file e.g., [@Marinkovi2020], or by switching to the visual editor (Cogwheel in the .Rmd menu -\> Use Visual Editor). [@Jokura_2023][@Jokura_2023][@Jacobs2023]
 
+It is now a test to edit the text and see how the changes show up on GitHub.
+
 In the visual editor mode, go to 'Insert' -\> \@ Citation
 
 You can select a Zotero library, PubMed, CrossRef etc. and insert the citations. [@Jacobs2023]
