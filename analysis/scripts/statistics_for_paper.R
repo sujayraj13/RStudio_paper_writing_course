@@ -16,7 +16,7 @@ max_PRC <- syn |>
 
 data_Ashwini <- readxl::read_excel(
   here::here("analysis/data/24_01_22qpcr_1 - ash pal.xls")
-)
+  )
 
 Gene <- c(rep("Nanog", 15), rep("oct4", 15), rep("sox2", 15),
   rep("Nestin", 15), rep("pax6", 15), rep("Foxg1", 15),
