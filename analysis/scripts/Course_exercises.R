@@ -472,7 +472,7 @@ Figure_complex <- panel_Platy + panel_FVRI +  panel_NOS +
   panel_INNOS + panel_Jose + panel_DAF +
   panel_model +
   plot_layout(design = layout, heights = c(1, 1, 0.05, 2)) +
-  plot_annotation(tag_levels = 'A') & 
+  plot_annotation(tag_levels = 'a') & 
   theme(plot.tag = element_text(size = 12, face='plain'))
 
 #save figure as png
