@@ -40,10 +40,21 @@ str(data_Jose)
 summary(data_Jose)
 data_Jose
 
+
+# rio: A Swiss-Army Knife for Data I/O  -----------------------------------
+
 #export as csv
 rio::export(data_Jose, "analysis/data/data_Jose_March2024.csv")
 #export as compressed csv
 export(data_Jose, "analysis/data/data_Jose_March2024.csv.zip")
+
+#convert file formats
+rio::convert("analysis/data/data - José - March 2024.xlsx",
+"analysis/data/data_Jose_March2024.csv")
+
+
+# another data file -------------------------------------------------------
+
 
 data_Ashwini <- readxl::read_excel("analysis/data/24_01_22qpcr_1 - ash pal.xls")
 head(data_Ashwini)

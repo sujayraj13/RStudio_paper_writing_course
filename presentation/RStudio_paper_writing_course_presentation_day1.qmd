@@ -228,6 +228,45 @@ readxl::read_excel("../analysis/data/data - José - March 2024.xlsx")
 ```
 :::
 
+
+
+
+## rio: A Swiss-Army Knife for Data I/O  
+
+
+- import xlsx, csv, tsv and many other formats with the same command
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+data_Jose <- rio::import("../analysis/data/data - José - March 2024.xlsx")
+```
+
+- export as csv
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+rio::export(data_Jose, "../analysis/data/data_Jose_March2024.csv")
+```
+
+- export as compressed csv
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+export(data_Jose, "../analysis/data/data_Jose_March2024.csv.zip")
+```
+
+- convert file formats
+
+```{r, eval=TRUE, echo=TRUE}
+#| code-fold: false
+rio::convert("../analysis/data/data - José - March 2024.xlsx",
+"../analysis/data/data_Jose_March2024.csv")
+```
+
+::: aside
+[Documentation of the rio package](http://gesistsa.github.io/rio/)
+:::
+
 ## Save and share your computer environment and packages
 
 ```{r echo=TRUE, eval=TRUE}
