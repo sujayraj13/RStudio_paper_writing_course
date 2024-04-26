@@ -3,7 +3,10 @@
 
 # sourcing, installing and loading packages -------------------------------
 
+# installing packages
+install.packages("tidyverse")
 
+# source multiple packages from one file
 source("analysis/scripts/packages_and_functions.R")
 
 #check your working dir (should be the .rproject dir)
@@ -12,8 +15,6 @@ getwd()
 here::here()
 list.files()
 
-#installing packages
-install.packages("tidyverse")
 
 #loading packages
 library(tidyverse)
@@ -29,11 +30,20 @@ writeLines(capture.output(sessionInfo()), "sessionInfo.txt")
 # load data ---------------------------------------------------------------
 
 data_Jose <- readxl::read_excel("analysis/data/data - José - March 2024.xlsx")
+
+# alternatively, use the rio package with import() to automatically recognise format and import
+data_Jose <- rio::import("analysis/data/data - José - March 2024.xlsx")
+
 head(data_Jose)
 glimpse(data_Jose)
 str(data_Jose)
 summary(data_Jose)
 data_Jose
+
+#export as csv
+rio::export(data_Jose, "analysis/data/data_Jose_March2024.csv")
+#export as compressed csv
+export(data_Jose, "analysis/data/data_Jose_March2024.csv.zip")
 
 data_Ashwini <- readxl::read_excel("analysis/data/24_01_22qpcr_1 - ash pal.xls")
 head(data_Ashwini)

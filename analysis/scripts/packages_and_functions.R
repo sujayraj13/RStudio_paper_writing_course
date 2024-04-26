@@ -18,6 +18,7 @@ library(rstudioapi)
 library(magick)
 library(janitor)
 library(tinytable)
+library(rio)
 
 # define some colour-blind-friendly colour palettes --------------
 #From Color Universal Design (CUD): https://jfly.uni-koeln.de/color/
