@@ -21,7 +21,7 @@ scrollable: true
 <br>
 - **Part 1**: Why open science? Project management, data import, tidy data
 
-- 12:30-13:30 lunch break
+- 13:00-14:00 lunch break
 
 - **Part 2**: Plotting, figure assembly
 :::
@@ -30,7 +30,7 @@ scrollable: true
 <br>
 - **Part 3**: Manuscript writing, tables, references, data and figure embedding
 
-- 12:30-13:30 lunch break
+- 13:00-14:00 lunch break
 
 - **Part 4**: GitHub, collaboration, sharing, version control
 :::
@@ -57,7 +57,7 @@ https://rstudio-education.github.io/tidyverse-cookbook/
 
 ## Most source data collected by scientists are not available
 
-![](images/Data_publication_Pyramide.png)
+![](images/Data_publication_Pyramide.png){height=450}
 
 ## Most scientists use software developed for accounting
 

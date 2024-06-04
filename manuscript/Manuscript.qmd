@@ -30,7 +30,7 @@ format:
       text: |
         \linenumbers
 bibliography: references.bib #add bibliography in this file
-csl: science.csl #change according to journal
+csl: elife.csl #change according to journal
 ---
 
 ```{r include=FALSE}

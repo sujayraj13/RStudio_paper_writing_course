@@ -12,9 +12,19 @@ source("analysis/scripts/packages_and_functions.R")
 #check your working dir (should be the .rproject dir)
 getwd()
 
+# in case you used setwd() in a script (you should not) you can find your Rproject directory with here()
 here::here()
-list.files()
 
+#test, but you should not do this
+setwd("~")
+getwd()
+
+#get back to Rproj dir
+setwd(here::here())
+getwd()
+# all good again
+
+list.files()
 
 #loading packages
 library(tidyverse)
@@ -55,8 +65,10 @@ rio::convert("analysis/data/data - José - March 2024.xlsx",
 
 # another data file -------------------------------------------------------
 
-
 data_Ashwini <- readxl::read_excel("analysis/data/24_01_22qpcr_1 - ash pal.xls")
+#or with rio
+data_Ashwini <- rio::import("analysis/data/24_01_22qpcr_1 - ash pal.xls")
+
 head(data_Ashwini)
 glimpse(data_Ashwini)
 str(data_Ashwini)
@@ -67,7 +79,6 @@ summary(data_Ashwini)
 
 head(iris)
 vignette("tibble")
-
 
 # overwrite gene names ----------------------------------------------------
 
@@ -103,9 +114,9 @@ data_Ashwini_sel_M_SD
 
 # tidying data ------------------------------------------------------------
 
-
 data_Syn <- read_csv("analysis/data/a-Syn-Data.csv")
 data_Syn
+
 # rename
 data_Syn_clean <- data_Syn  %>%
   rename_with(~ gsub("_", "-", .x, fixed = TRUE)) %>%
@@ -202,7 +213,7 @@ plot_syn
 
 # Read and preview data 3 --------------
 
-data_Anchel <- readxl::read_excel("analysis/data/240323 CIN Exp278 reporter assay - Anchel.xlsx")
+data_Anchel <- rio::import("analysis/data/240323 CIN Exp278 reporter assay - Anchel.xlsx")
 head(data_Anchel)
 glimpse(data_Anchel)
 str(data_Anchel)
