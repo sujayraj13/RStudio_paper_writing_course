@@ -12,7 +12,8 @@ crossref:
   fig-title: Figure     # (default is "Figure")
 max-width: 100%
 format:
-  html: default
+  html: 
+    embed-resources: true
   pdf:
     pdf-engine: xelatex
     number-sections: false
