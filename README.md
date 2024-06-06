@@ -8,26 +8,26 @@ that the [Jékely
 lab](https://www.cos.uni-heidelberg.de/en/research-groups/gaspar-jekely)
 uses to start to write new research papers.
 
-Add the specific information about your paper here:
+Add the specific information about your paper here: This is a trial for
+writing about the details of a paper for the R course because I want to
+fuck around and find out
 
 This repository contains the data and code for our paper:
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of journal/book
+> Authors, (YYYY). *Rcourse on paper writing*. Name of journal/book
 > <https://doi.org/xxx/xxx>
 
-Our pre-print is online here:
+Our pre-print is online here: www.instagram.com/9gag
 
-> Authors, (YYYY). *Title of your paper goes here*. Name of
-> journal/book, Accessed 24 Apr 2024. Online at
-> <https://doi.org/xxx/xxx>
+> Authors, (YYYY). *Rcourse on paper writing*. Name of journal/book,
+> Accessed 06 Jun 2024. Online at <https://doi.org/xxx/xxx>
 
 ### How to cite
 
 Please cite this compendium as:
 
-> Authors, (2024). *Compendium of R code and data for Title of your
-> paper goes here*. Accessed 24 Apr 2024. Online at
-> <https://doi.org/xxx/xxx>
+> Authors, (2024). *Compendium of R code and data for Rcourse on paper
+> writing*. Accessed 06 Jun 2024. Online at <https://doi.org/xxx/xxx>
 
 ## Contents
 
