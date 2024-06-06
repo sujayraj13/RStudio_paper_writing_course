@@ -100,7 +100,7 @@ data_Ashwini_sel
 # Add mean and SD columns with group_by() and mutate() --------
 
 data_Ashwini_sel_M_SD <- data_Ashwini_sel %>%
-  group_by(gene) %>%
+  group_by(gene, days) %>%
   mutate(mean2dct = mean(x2_dct)) %>%
   mutate(sd2dct = sd(x2_dct))
 data_Ashwini_sel_M_SD
@@ -153,7 +153,7 @@ iris %>%
 iris %>%  
   ggplot(aes(
     x = Petal.Length, y = Sepal.Width, 
-    color = Species, size = Sepal.Length)
+    color = Species, size = Sepal.Length, alpha = 0.9)
     ) +
   geom_point() +
   facet_wrap(~Species)
@@ -253,7 +253,8 @@ theme_plots <- theme_minimal() +
     axis.title.y = element_text(size = 12),
     axis.text = element_text(size = 10),
     legend.text = element_text(size = 10),
-    legend.title = element_text(size = 12),
+    legend.title = element_text(size = 12), 
+    legend.title = element_text(face = "bold"),
     legend.key.size = unit(7, "mm"),
     legend.title.position = "top",
     legend.background = element_rect(color = "grey"),
@@ -296,6 +297,11 @@ ggsave(
   bg = "white"
   )
 
+ggsave(
+  "analysis/pictures/synuclein_plot.png", plot_syn, 
+  bg = "transparent"
+)
+
 # Assemble figure with cowplot and patchwork --------------
 
 #read images
@@ -317,6 +323,12 @@ Figure_Jose <- panel_JoseA + panel_JoseB + plot_Jose1 + plot_Jose2 +
   plot_layout(design = layout, heights = c(1, 1)) +
   plot_annotation(tag_levels = 'A') & 
   theme(plot.tag = element_text(size = 12, face='plain'))
+
+Figure_Jose2 <- plot_syn_ann + plot_syn + plot_Jose1 + plot_Jose2 +
+  plot_layout(design = layout, heights = c(1, 1)) +
+  plot_annotation(tag_levels = 'A') & 
+  theme(plot.tag = element_text(size = 12, face='plain'))
+
 
 #save figure as png and pdf
 ggsave(
@@ -399,6 +411,9 @@ panel_NOS2d_HCR <- ggdraw() + draw_image(readPNG("analysis/pictures/HCR-IHC_51_A
   draw_label("acTub", x = 0.36, y = 0.9, color="green", size = 11, fontface="plain") +
   draw_line(x = c(0.1, 0.46), y = c(0.08, 0.08), color = "white", size = 0.5) +
   draw_label(expression(paste("20 ", mu, "m")), x = 0.28, y = 0.11, color = "white", size = 8)
+
+##You will have to caluclate the percentage length of the scale bar corresponding to the length of the entire image - as mentioned in the image file name
+## 0.1 to 0.46 is 10% to 46% of the length of the file - 36% in total corresponds to 20 um
   
 panel_NIT_HCR <- ggdraw() + draw_image(readPNG("analysis/pictures/HCR_72_AP_NIT_94um.png")) +
   draw_label("transgene + IHC", x = 0.5, y = 0.99, size = 10) +
@@ -423,6 +438,12 @@ ggsave(
   units = c("px"), Figure_scalebars, 
   width = 1700, height = 940, bg = "white"
   )
+
+ggsave(
+  "manuscript/figures/Figure_scalebars1.png",
+  units = c("px"), Figure_scalebars, 
+  width = 2000, height = 2000, bg = "white"
+)
 
 ggsave(
   "manuscript/figures/Figure_scalebars.pdf",
@@ -492,8 +513,8 @@ panel_model <- ggdraw() + draw_image(readPNG("analysis/pictures/Magnitude_model_
 
 #introduce gap in layout
 layout <- "
-AAAABBBBCCCC
-AAAABBBBDDDD
+AAAABBBB#CCC
+AAAABBBB#DDD
 ############
 EEEFFFGGGHHH
 "
@@ -527,6 +548,10 @@ ggsave(
   width = 22, height = 13, dpi = 300, bg = "white"
   )
 
+#Loading TIFs
+
+##You need to use magick package to load in TIF files
+
 # Statistical comparisons -------------
 
 
@@ -538,3 +563,8 @@ data_Jose %>%
   guides(fill = guide_legend(title = "Treatment")) +
   coord_flip() +
   scale_y_log10()
+
+
+
+#gH2AX dataset analysis
+
